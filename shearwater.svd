@@ -32,14 +32,14 @@
  -->
 
 <device schemaVersion="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="CMSIS-SVD.xsd" >
-  <vendor>RedShift Labs</vendor>                                       <!-- device vendor name -->
-  <vendorID>RedshiftLabs</vendorID>                                        <!-- device vendor short name -->
-  <name>Shearwater</name>                                        <!-- name of part-->
-  <series>IMU</series>                                         <!-- device series the device belongs to -->
+  <vendor>RedShift Labs</vendor>                                  <!-- device vendor name -->
+  <vendorID>RedshiftLabs</vendorID>                               <!-- device vendor short name -->
+  <name>Shearwater</name>                                         <!-- name of part-->
+  <series>IMU</series>                                            <!-- device series the device belongs to -->
   <version>0.3</version>                                          <!-- version of this description, adding CMSIS-SVD 1.1 tags -->
   <description>Shearwater Board Peripheral Description</description>
   <licenseText>                                                   <!-- this license text will appear in header file. \n force line breaks -->
-      Redshift Labs modified this file
+      Redshift Labs modified this file\n
 
     ARM Limited (ARM) is supplying this software for use with Cortex-M\n
     processor based microcontroller, but can be equally used for other\n
@@ -64,55 +64,49 @@
   <resetMask>0xFFFFFFFF</resetMask>                               <!-- by default all 32Bits of the registers are used -->
 
   <peripherals>
-    <!-- Timer 0 -->
+    <!-- Fusion Configuration Registers -->
     <peripheral>
-      <name>TIMER0</name>
-      <version>1.0</version>
-      <description>32 Timer / Counter, counting up or down from different sources</description>
-      <groupName>TIMER</groupName>
-      <baseAddress>0x40010000</baseAddress>
+      <name>CREG</name>
+      <version>0.2</version>
+      <description>Fusion Configuration Registers for the shearwater board</description>
+      <groupName>CREG</groupName>
+      <baseAddress>0x00000000</baseAddress>
       <size>32</size>
       <access>read-write</access>
 
       <addressBlock>
         <offset>0</offset>
-        <size>0x100</size>
+        <size>0x35</size>
         <usage>registers</usage>
       </addressBlock>
 
-      <interrupt>
-        <name>TIMER0</name>
-        <description>Timer 0 interrupt</description>
-        <value>0</value>
-      </interrupt>
-
       <registers>
-      <!-- CR: Control Register -->
+      <!-- CREG_COM_SETTINGS: Communication Settings -->
         <register>
-          <name>CR</name>
-          <description>Control Register</description>
+          <name>CREG_COM_SETTINGS</name>
+          <description>The CREG_COM_SETTINGS register is used to set the board’s serial port baud rate and to enable (disable) the automatic transmission of sensor data and estimated states (telemetry).</description>
           <addressOffset>0x00</addressOffset>
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <resetMask>0x1337F7F</resetMask>
+          <resetMask>0xFFFFFFFF</resetMask>
 
           <fields>
-            <!-- EN: Enable -->
+            <!-- BAUD_RATE: Baud rate -->
             <field>
-              <name>EN</name>
-              <description>Enable</description>
-              <bitRange>[0:0]</bitRange>
+              <name>BAUD_RATE</name>
+              <description>Sets the baud rate of the board’s main serial port:</description>
+              <bitRange>[31:28]</bitRange>
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>Disable</name>
-                  <description>Timer is disabled and does not operate</description>
+                  <name>9600</name>
+                  <description>Baud rate: 9600</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>Enable</name>
-                  <description>Timer is enabled and can operate</description>
+                  <name>14400</name>
+                  <description>Baud rate: 14400</description>
                   <value>1</value>
                 </enumeratedValue>
               </enumeratedValues>
