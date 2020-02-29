@@ -74,7 +74,7 @@
 
       <addressBlock>
         <offset>0</offset>
-        <size>0x200</size>
+        <size>0x500</size>
         <usage>registers</usage>
       </addressBlock>
 
@@ -2161,6 +2161,124 @@
             </field>
           </fields>
         </register>
+
+      <!-- Fusion data registers V2 -->
+
+        <!-- DREG_HEALTH -->
+        <register>
+          <name>DREG_HEALTH</name>
+          <description>The health register reports the current status of the sensors on the board. Monitoring the health register is the easiest way to watch for other problems that could affect the behavior of the board, status of the sensors. The analogous to the health register, the status of the GPS signal can be monitored in the DREG_GPS_HEALTH</description>
+          <addressOffset>0x154</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- OVF -->
+            <field>
+              <name>OVF</name>
+              <description>Overflow bit. This bit is set if the board is attempting to transmit data over the serial port faster than is allowed given the baud-rate. If this bit is set, reduce broadcast rates in the COM_RATES registers.</description>
+              <bitRange>[8:8]</bitRange>
+              <access>read-only</access>
+            </field>
+
+            <!-- ACC1_N -->
+            <field>
+              <name>ACC1_N</name>
+              <description>This bit is set if the sensor detects that the norm of the accelerometer measurement is too far away from 1G to be used (i.e. during aggressive acceleration or high vibration).</description>
+              <bitRange>[7:7]</bitRange>
+              <access>read-only</access>
+            </field>
+
+            <!-- MAG1_N -->
+            <field>
+              <name>MAG1_N</name>
+              <description>This bit is set if the sensor detects that the norm of the magnetometer measurement for the magnetometer 1 is too far away from 1.0 to be trusted. Usually indicates bad calibration, local field distortions, or both.</description>
+              <bitRange>[6:6]</bitRange>
+              <access>read-only</access>
+            </field>
+
+            <!-- MAG2_N -->
+            <field>
+              <name>MAG2_N</name>
+              <description>This bit is set if the sensor detects that the norm of the magnetometer measurement for the magnetometer 2 is too far away from 1.0 to be trusted. Usually indicates bad calibration, local field distortions, or both.</description>
+              <bitRange>[5:5]</bitRange>
+              <access>read-only</access>
+            </field>
+
+            <!-- ACCEL1 -->
+            <field>
+              <name>ACCEL1</name>
+              <description>This bit will be set if the accelerometer 1 fails to initialize on startup.</description>
+              <bitRange>[4:4]</bitRange>
+              <access>read-only</access>
+            </field>
+
+            <!-- GYRO1 -->
+            <field>
+              <name>GYRO1</name>
+              <description>This bit will be set if the rate gyro 1 fails to initialize on startup.</description>
+              <bitRange>[3:3]</bitRange>
+              <access>read-only</access>
+            </field>
+
+            <!-- GYRO2 -->
+            <field>
+              <name>GYRO2</name>
+              <description>This bit will be set if the rate gyro 2 fails to initialize on startup.</description>
+              <bitRange>[2:2]</bitRange>
+              <access>read-only</access>
+            </field>
+
+            <!-- MAG1 -->
+            <field>
+              <name>MAG1</name>
+              <description>This bit will be set if the magnetometer 1 fails to initialize on startup.</description>
+              <bitRange>[1:1]</bitRange>
+              <access>read-only</access>
+            </field>
+
+            <!-- MAG2 -->
+            <field>
+              <name>MAG2</name>
+              <description>This bit will be set if the magnetometer 2 fails to initialize on startup.</description>
+              <bitRange>[0:0]</bitRange>
+              <access>read-only</access>
+            </field>
+
+          </fields>
+        </register>
+
+        <!-- DREG_GYRO_1_RAW_XY -->
+        <register>
+          <name>DREG_GYRO_1_RAW_XY</name>
+          <description>Contains raw X and Y axis rate gyro 1 data.</description>
+          <addressOffset>0x158</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- GYRO_1_RAW_X -->
+            <field>
+              <name>GYRO_1_RAW_X</name>
+              <description>Gyro X (2s complement 16-bit integer)</description>
+              <bitRange>[31:16]</bitRange>
+              <access>read-only</access>
+            </field>
+
+            <!-- GYRO_1_RAW_Y -->
+            <field>
+              <name>GYRO_1_RAW_Y</name>
+              <description>Gyro Y (2s complement 16-bit integer)</description>
+              <bitRange>[15:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
 
       </registers>
     </peripheral>
