@@ -1190,91 +1190,977 @@
           </fields>
         </register>
 
-                <!-- CREG_COM_RATES5: Broadcast rate settings -->
+        <!-- CREG_GYRO_1_TRIM_X -->
         <register>
-          <name>CREG_COM_RATES5</name>
-          <description>The CREG_COM_RATES1 register sets desired telemetry transmission rates in Hz for raw accelerometer 1, gyro 1, gyro 2 and magnetometer 1 data. If the specified rate is 0, then no data is transmitted.</description>
-          <addressOffset>0x14</addressOffset>
+          <name>CREG_GYRO_1_TRIM_X</name>
+          <description>This register sets the x-axis rate gyro 1 trim, which is used to add additional bias compensation for the rate gyros during calls to the ZERO_GYRO_BIAS command.</description>
+          <addressOffset>0x28</addressOffset>
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
 
           <fields>
-            <!-- RAW_MAG_1_RATE: raw magnetometer 1 data broadcast rate -->
+            <!-- GYRO_1_TRIM_X: Bias trim for x-axis rate gyro 1 -->
             <field>
-              <name>RAW_MAG_1_RATE</name>
-              <description>Specifies the desired raw magnetometer 1 data broadcast rate in Hz. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
-              <bitRange>[7:0]</bitRange>
+              <name>GYRO_1_TRIM_X</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
               <access>read-write</access>
             </field>
           </fields>
         </register>
 
-                <!-- CREG_COM_RATES5: Broadcast rate settings -->
+        <!-- CREG_GYRO_1_TRIM_Y: Bias trim for y-axis rate gyro 1 -->
         <register>
-          <name>CREG_COM_RATES5</name>
-          <description>The CREG_COM_RATES1 register sets desired telemetry transmission rates in Hz for raw accelerometer 1, gyro 1, gyro 2 and magnetometer 1 data. If the specified rate is 0, then no data is transmitted.</description>
-          <addressOffset>0x14</addressOffset>
+          <name>CREG_GYRO_1_TRIM_Y</name>
+          <description>This register sets the y-axis rate gyro 1 trim, which is used to add additional bias compensation for the rate gyros during calls to the ZERO_GYRO_BIAS command.</description>
+          <addressOffset>0x2C</addressOffset>
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
 
           <fields>
-            <!-- RAW_MAG_1_RATE: raw magnetometer 1 data broadcast rate -->
+            <!-- GYRO_1_TRIM_Y -->
             <field>
-              <name>RAW_MAG_1_RATE</name>
-              <description>Specifies the desired raw magnetometer 1 data broadcast rate in Hz. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
-              <bitRange>[7:0]</bitRange>
+              <name>GYRO_1_TRIM_Y</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
               <access>read-write</access>
             </field>
           </fields>
         </register>
 
-                <!-- CREG_COM_RATES5: Broadcast rate settings -->
+        <!-- CREG_GYRO_1_TRIM_Z: Bias trim for z-axis rate gyro 1 -->
         <register>
-          <name>CREG_COM_RATES5</name>
-          <description>The CREG_COM_RATES1 register sets desired telemetry transmission rates in Hz for raw accelerometer 1, gyro 1, gyro 2 and magnetometer 1 data. If the specified rate is 0, then no data is transmitted.</description>
-          <addressOffset>0x14</addressOffset>
+          <name>CREG_GYRO_1_TRIM_Z</name>
+          <description>This register sets the z-axis rate gyro 1 trim, which is used to add additional bias compensation for the rate gyros during calls to the ZERO_GYRO_BIAS command.</description>
+          <addressOffset>0x30</addressOffset>
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
 
           <fields>
-            <!-- RAW_MAG_1_RATE: raw magnetometer 1 data broadcast rate -->
+            <!-- GYRO_1_TRIM_Z -->
             <field>
-              <name>RAW_MAG_1_RATE</name>
-              <description>Specifies the desired raw magnetometer 1 data broadcast rate in Hz. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
-              <bitRange>[7:0]</bitRange>
+              <name>GYRO_1_TRIM_Z</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
               <access>read-write</access>
             </field>
           </fields>
         </register>
 
-                <!-- CREG_COM_RATES5: Broadcast rate settings -->
+
+        <!-- CREG_GYRO_2_MEAS_RANGE: Gyro 2 measurement range settings -->
         <register>
-          <name>CREG_COM_RATES5</name>
-          <description>The CREG_COM_RATES1 register sets desired telemetry transmission rates in Hz for raw accelerometer 1, gyro 1, gyro 2 and magnetometer 1 data. If the specified rate is 0, then no data is transmitted.</description>
-          <addressOffset>0x14</addressOffset>
+          <name>CREG_GYRO_2_MEAS_RANGE</name>
+          <description>The CREG_GYRO_2_MEAS_RANGE register sets the desired measurement range for the gyro 2 sensor. If the rate is not set, then the default value of 2000 deg/s will be used as a measurement range.</description>
+          <addressOffset>0x34</addressOffset>
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
 
           <fields>
-            <!-- RAW_MAG_1_RATE: raw magnetometer 1 data broadcast rate -->
+            <!-- MEAS_GYRO2 -->
             <field>
-              <name>RAW_MAG_1_RATE</name>
-              <description>Specifies the desired raw magnetometer 1 data broadcast rate in Hz. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
-              <bitRange>[7:0]</bitRange>
+              <name>MEAS_GYRO2</name>
+              <description>Specifies the desired measurement range for the gyro 2 measurements.</description>
+              <bitRange>[1:0]</bitRange>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>2000</name>
+                  <description>Measurement range: +- 2000 dps</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>1000</name>
+                  <description>Measurement range: +- 1000 dps</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>500</name>
+                  <description>Measurement range: +- 500 dps</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>250</name>
+                  <description>Measurement range: +- 250 dps</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+          </fields>
+        </register>
+
+
+        <!-- CREG_GYRO_2_TRIM_X -->
+        <register>
+          <name>CREG_GYRO_2_TRIM_X</name>
+          <description>This register sets the x-axis rate gyro 2 trim, which is used to add additional bias compensation for the rate gyros during calls to the ZERO_GYRO_BIAS command.</description>
+          <addressOffset>0x38</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- GYRO_2_TRIM_X: Bias trim for x-axis rate gyro 2 -->
+            <field>
+              <name>GYRO_2_TRIM_X</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_GYRO_2_TRIM_Y: Bias trim for y-axis rate gyro 2 -->
+        <register>
+          <name>CREG_GYRO_2_TRIM_Y</name>
+          <description>This register sets the y-axis rate gyro 2 trim, which is used to add additional bias compensation for the rate gyros during calls to the ZERO_GYRO_BIAS command.</description>
+          <addressOffset>0x3C</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- GYRO_2_TRIM_Y -->
+            <field>
+              <name>GYRO_2_TRIM_Y</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_GYRO_2_TRIM_Z: Bias trim for z-axis rate gyro 2 -->
+        <register>
+          <name>CREG_GYRO_2_TRIM_Z</name>
+          <description>This register sets the z-axis rate gyro 2 trim, which is used to add additional bias compensation for the rate gyros during calls to the ZERO_GYRO_BIAS command.</description>
+          <addressOffset>0x40</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- GYRO_2_TRIM_Z -->
+            <field>
+              <name>GYRO_2_TRIM_Z</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_1_CAL1_1: Row 1, Column 1 of magnetometer 1 calibration matrix -->
+        <register>
+          <name>CREG_MAG_1_CAL1_1</name>
+          <description>Row 1, Column 1 of magnetometer 1 calibration matrix.</description>
+          <addressOffset>0x44</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_1_CAL1_1 -->
+            <field>
+              <name>MAG_1_CAL1_1</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_1_CAL1_2: Row 1, Column 1 of magnetometer 1 calibration matrix -->
+        <register>
+          <name>CREG_MAG_1_CAL1_2</name>
+          <description>Row 1, Column 2 of magnetometer 1 calibration matrix.</description>
+          <addressOffset>0x48</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_1_CAL1_2 -->
+            <field>
+              <name>MAG_1_CAL1_2</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_1_CAL1_3: Row 1, Column 3 of magnetometer 1 calibration matrix -->
+        <register>
+          <name>CREG_MAG_1_CAL1_3</name>
+          <description>Row 1, Column 3 of magnetometer 1 calibration matrix.</description>
+          <addressOffset>0x4C</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_1_CAL1_3 -->
+            <field>
+              <name>MAG_1_CAL1_3</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_1_CAL2_1: Row 2, Column 1 of magnetometer 1 calibration matrix -->
+        <register>
+          <name>CREG_MAG_1_CAL2_1</name>
+          <description>Row 2, Column 1 of magnetometer 1 calibration matrix.</description>
+          <addressOffset>0x50</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_1_CAL2_1 -->
+            <field>
+              <name>MAG_1_CAL2_1</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_1_CAL2_2: Row 2, Column 2 of magnetometer 1 calibration matrix -->
+        <register>
+          <name>CREG_MAG_1_CAL2_2</name>
+          <description>Row 2, Column 2 of magnetometer 1 calibration matrix.</description>
+          <addressOffset>0x54</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_1_CAL2_2 -->
+            <field>
+              <name>MAG_1_CAL2_2</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_1_CAL2_3: Row 2, Column 3 of magnetometer 1 calibration matrix -->
+        <register>
+          <name>CREG_MAG_1_CAL2_3</name>
+          <description>Row 2, Column 3 of magnetometer 1 calibration matrix.</description>
+          <addressOffset>0x58</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_1_CAL2_3 -->
+            <field>
+              <name>MAG_1_CAL2_3</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_1_CAL3_1: Row 3, Column 1 of magnetometer 1 calibration matrix -->
+        <register>
+          <name>CREG_MAG_1_CAL3_1</name>
+          <description>Row 3, Column 1 of magnetometer 1 calibration matrix.</description>
+          <addressOffset>0x5C</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_1_CAL3_1 -->
+            <field>
+              <name>MAG_1_CAL3_1</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_1_CAL3_2: Row 3, Column 2 of magnetometer 1 calibration matrix -->
+        <register>
+          <name>CREG_MAG_1_CAL3_2</name>
+          <description>Row 3, Column 2 of magnetometer 1 calibration matrix.</description>
+          <addressOffset>0x60</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_1_CAL3_2 -->
+            <field>
+              <name>MAG_1_CAL3_2</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_1_CAL3_3: Row 3, Column 3 of magnetometer 1 calibration matrix -->
+        <register>
+          <name>CREG_MAG_1_CAL3_3</name>
+          <description>Row 3, Column 3 of magnetometer 1 calibration matrix.</description>
+          <addressOffset>0x64</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_1_CAL3_3 -->
+            <field>
+              <name>MAG_1_CAL3_3</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_1_BIAS_X -->
+        <register>
+          <name>CREG_MAG_1_BIAS_X</name>
+          <description>This register stores a bias term for the magnetometer 1 x-axis for hard-iron calibration. This term can be computed by performing magnetometer calibration with the Redshift labs Serial Interface.</description>
+          <addressOffset>0x68</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_1_BIAS_X -->
+            <field>
+              <name>MAG_1_BIAS_X</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_1_BIAS_Y -->
+        <register>
+          <name>CREG_MAG_1_BIAS_Y</name>
+          <description>This register stores a bias term for the magnetometer 1 y-axis for hard-iron calibration. This term can be computed by performing magnetometer calibration with the Redshift labs Serial Interface.</description>
+          <addressOffset>0x6C</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_1_BIAS_Y -->
+            <field>
+              <name>MAG_1_BIAS_Y</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_1_BIAS_Z -->
+        <register>
+          <name>CREG_MAG_1_BIAS_Z</name>
+          <description>This register stores a bias term for the magnetometer 1 z-axis for hard-iron calibration. This term can be computed by performing magnetometer calibration with the Redshift labs Serial Interface.</description>
+          <addressOffset>0x70</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_1_BIAS_Z -->
+            <field>
+              <name>MAG_1_BIAS_Z</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
               <access>read-write</access>
             </field>
           </fields>
         </register>
 
 
+        <!-- CREG_MAG_2_CAL1_1: Row 1, Column 1 of magnetometer 2 calibration matrix -->
+        <register>
+          <name>CREG_MAG_2_CAL1_1</name>
+          <description>Row 1, Column 1 of magnetometer 2 calibration matrix.</description>
+          <addressOffset>0x74</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_2_CAL1_1 -->
+            <field>
+              <name>MAG_2_CAL1_1</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_2_CAL1_2: Row 1, Column 2 of magnetometer 2 calibration matrix  -->
+        <register>
+          <name>CREG_MAG_2_CAL1_2</name>
+          <description>Row 1, Column 2 of magnetometer 2 calibration matrix.</description>
+          <addressOffset>0x78</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_2_CAL1_2 -->
+            <field>
+              <name>MAG_2_CAL1_2</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_2_CAL1_3: Row 1, Column 3 of magnetometer 2 calibration matrix -->
+        <register>
+          <name>CREG_MAG_2_CAL1_3</name>
+          <description>Row 1, Column 3 of magnetometer 2 calibration matrix.</description>
+          <addressOffset>0x7C</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_2_CAL1_3 -->
+            <field>
+              <name>MAG_2_CAL1_3</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_2_CAL2_1: Row 2, Column 1 of magnetometer 2 calibration matrix -->
+        <register>
+          <name>CREG_MAG_2_CAL2_1</name>
+          <description>Row 2, Column 1 of magnetometer 2 calibration matrix.</description>
+          <addressOffset>0x80</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_2_CAL2_1 -->
+            <field>
+              <name>MAG_2_CAL2_1</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_2_CAL2_2: Row 2, Column 2 of magnetometer 2 calibration matrix -->
+        <register>
+          <name>CREG_MAG_2_CAL2_2</name>
+          <description>Row 2, Column 2 of magnetometer 2 calibration matrix.</description>
+          <addressOffset>0x84</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_2_CAL2_2 -->
+            <field>
+              <name>MAG_2_CAL2_2</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_2_CAL2_3: Row 2, Column 3 of magnetometer 2 calibration matrix -->
+        <register>
+          <name>CREG_MAG_2_CAL2_3</name>
+          <description>Row 2, Column 3 of magnetometer 2 calibration matrix.</description>
+          <addressOffset>0x88</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_2_CAL2_3 -->
+            <field>
+              <name>MAG_2_CAL2_3</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_2_CAL3_1: Row 3, Column 1 of magnetometer 2 calibration matrix -->
+        <register>
+          <name>CREG_MAG_2_CAL3_1</name>
+          <description>Row 3, Column 1 of magnetometer 2 calibration matrix.</description>
+          <addressOffset>0x8C</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_2_CAL3_1 -->
+            <field>
+              <name>MAG_2_CAL3_1</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_2_CAL3_2: Row 3, Column 2 of magnetometer 2 calibration matrix -->
+        <register>
+          <name>CREG_MAG_2_CAL3_2</name>
+          <description>Row 3, Column 2 of magnetometer 2 calibration matrix.</description>
+          <addressOffset>0x90</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_2_CAL3_2 -->
+            <field>
+              <name>MAG_2_CAL3_2</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_2_CAL3_3: Row 3, Column 3 of magnetometer 2 calibration matrix -->
+        <register>
+          <name>CREG_MAG_2_CAL3_3</name>
+          <description>Row 3, Column 3 of magnetometer 2 calibration matrix.</description>
+          <addressOffset>0x94</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_2_CAL3_3 -->
+            <field>
+              <name>MAG_2_CAL3_3</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_2_BIAS_X -->
+        <register>
+          <name>CREG_MAG_2_BIAS_X</name>
+          <description>This register stores a bias term for the magnetometer 2 x-axis for hard-iron calibration. This term can be computed by performing magnetometer calibration with the Redshift labs Serial Interface.</description>
+          <addressOffset>0x98</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_2_BIAS_X -->
+            <field>
+              <name>MAG_2_BIAS_X</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_2_BIAS_Y -->
+        <register>
+          <name>CREG_MAG_2_BIAS_Y</name>
+          <description>This register stores a bias term for the magnetometer 2 y-axis for hard-iron calibration. This term can be computed by performing magnetometer calibration with the Redshift labs Serial Interface.</description>
+          <addressOffset>0x9C</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_2_BIAS_Y -->
+            <field>
+              <name>MAG_2_BIAS_Y</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_MAG_2_BIAS_Z -->
+        <register>
+          <name>CREG_MAG_2_BIAS_Z</name>
+          <description>This register stores a bias term for the magnetometer 2 z-axis for hard-iron calibration. This term can be computed by performing magnetometer calibration with the Redshift labs Serial Interface.</description>
+          <addressOffset>0xA0</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_2_BIAS_Z -->
+            <field>
+              <name>MAG_2_BIAS_Z</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_ACCEL_1_MEAS_RANGE: Accelerometer 1 measurement range settings -->
+        <register>
+          <name>CREG_ACCEL_1_MEAS_RANGE</name>
+          <description>The CREG_ACCEL_1_MEAS_RANGE register sets the desired measurement range for the accelerometer 1. If the rate is not set, then the default value of the +-2 g will be used as a measurement range.</description>
+          <addressOffset>0xA4</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MEAS_ACC1 -->
+            <field>
+              <name>MEAS_ACC1</name>
+              <description>Specifies the desired measurement range for the accelerometer 1 measurements.</description>
+              <bitRange>[1:0]</bitRange>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>2</name>
+                  <description>Measurement range: +- 2 g</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>4</name>
+                  <description>Measurement range: +- 4 g</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>8</name>
+                  <description>Measurement range: +- 8 g</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>16</name>
+                  <description>Measurement range: +- 16 g</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+          </fields>
+        </register>
+
+
+        <!-- CREG_ACCEL_1_CAL1_1: Row 1, Column 1 of accelerometer 1 calibration matrix -->
+        <register>
+          <name>CREG_ACCEL_1_CAL1_1</name>
+          <description>Row 1, Column 1 of accelerometer 1 calibration matrix.</description>
+          <addressOffset>0xA8</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ACCEL_1_CAL1_1 -->
+            <field>
+              <name>ACCEL_1_CAL1_1</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_ACCEL_1_CAL1_2: Row 1, Column 2 of accelerometer 1 calibration matrix -->
+        <register>
+          <name>CREG_ACCEL_1_CAL1_2</name>
+          <description>Row 1, Column 2 of accelerometer 1 calibration matrix.</description>
+          <addressOffset>0xAC</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ACCEL_1_CAL1_2 -->
+            <field>
+              <name>ACCEL_1_CAL1_2</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_ACCEL_1_CAL1_3: Row 1, Column 3 of accelerometer 1 calibration matrix -->
+        <register>
+          <name>CREG_ACCEL_1_CAL1_3</name>
+          <description>Row 1, Column 3 of accelerometer 1 calibration matrix.</description>
+          <addressOffset>0xB0</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ACCEL_1_CAL1_3 -->
+            <field>
+              <name>ACCEL_1_CAL1_3</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_ACCEL_1_CAL2_1: Row 2, Column 1 of accelerometer 1 calibration matrix -->
+        <register>
+          <name>CREG_ACCEL_1_CAL2_1</name>
+          <description>Row 2, Column 1 of accelerometer 1 calibration matrix.</description>
+          <addressOffset>0xB4</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ACCEL_1_CAL2_1 -->
+            <field>
+              <name>ACCEL_1_CAL2_1</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_ACCEL_1_CAL2_2: Row 2, Column 2 of accelerometer 1 calibration matrix -->
+        <register>
+          <name>CREG_ACCEL_1_CAL2_2</name>
+          <description>Row 2, Column 2 of accelerometer 1 calibration matrix.</description>
+          <addressOffset>0xB8</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ACCEL_1_CAL2_2 -->
+            <field>
+              <name>ACCEL_1_CAL2_2</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_ACCEL_1_CAL2_3: Row 2, Column 3 of accelerometer 1 calibration matrix -->
+        <register>
+          <name>CREG_ACCEL_1_CAL2_3</name>
+          <description>Row 2, Column 3 of accelerometer 1 calibration matrix.</description>
+          <addressOffset>0xBC</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ACCEL_1_CAL2_3 -->
+            <field>
+              <name>ACCEL_1_CAL2_3</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_ACCEL_1_CAL3_1: Row 3, Column 1 of accelerometer 1 calibration matrix -->
+        <register>
+          <name>CREG_ACCEL_1_CAL3_1</name>
+          <description>Row 3, Column 1 of accelerometer 1 calibration matrix.</description>
+          <addressOffset>0xC0</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ACCEL_1_CAL3_1 -->
+            <field>
+              <name>ACCEL_1_CAL3_1</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_ACCEL_1_CAL3_2: Row 3, Column 2 of accelerometer 1 calibration matrix -->
+        <register>
+          <name>CREG_ACCEL_1_CAL3_2</name>
+          <description>Row 3, Column 2 of accelerometer 1 calibration matrix.</description>
+          <addressOffset>0xC4</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ACCEL_1_CAL3_2 -->
+            <field>
+              <name>ACCEL_1_CAL3_2</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_ACCEL_1_CAL3_3: Row 3, Column 3 of accelerometer 1 calibration matrix -->
+        <register>
+          <name>CREG_ACCEL_1_CAL3_3</name>
+          <description>Row 3, Column 3 of accelerometer 1 calibration matrix.</description>
+          <addressOffset>0xC8</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ACCEL_1_CAL3_3 -->
+            <field>
+              <name>ACCEL_1_CAL3_3</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_ACCEL_1_BIAS_X -->
+        <register>
+          <name>CREG_ACCEL_1_BIAS_X</name>
+          <description>This register stores a bias term for the accelerometer 1 x-axis for bias calibration. This term can be computed by performing calibrate accelerometers command within the Redshift labs Serial Interface.</description>
+          <addressOffset>0xCC</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ACCEL_1_BIAS_X -->
+            <field>
+              <name>ACCEL_1_BIAS_X</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_ACCEL_1_BIAS_Y -->
+        <register>
+          <name>CREG_ACCEL_1_BIAS_Y</name>
+          <description>This register stores a bias term for the accelerometer 1 y-axis for bias calibration. This term can be computed by performing calibrate accelerometers command within the Redshift labs Serial Interface.</description>
+          <addressOffset>0xD0</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ACCEL_1_BIAS_Y -->
+            <field>
+              <name>ACCEL_1_BIAS_Y</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_ACCEL_1_BIAS_Z -->
+        <register>
+          <name>CREG_ACCEL_1_BIAS_Z</name>
+          <description>This register stores a bias term for the accelerometer 1 z-axis for bias calibration. This term can be computed by performing calibrate accelerometers command within the Redshift labs Serial Interface.</description>
+          <addressOffset>0xD4</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ACCEL_1_BIAS_Z -->
+            <field>
+              <name>ACCEL_1_BIAS_Z</name>
+              <description>32-bit IEEE Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
 
       </registers>
     </peripheral>
