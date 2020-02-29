@@ -235,22 +235,1029 @@
               <access>read-write</access>
             </field>
 
-                        <!-- TEMP_RATE: broadcast rate for temperature data -->
+            <!-- ALL_RAW_RATE: broadcast rate for all raw sensor data -->
             <field>
-              <name>TEMP_RATE</name>
-              <description>Specifies the desired broadcast rate for temperature data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
+              <name>ALL_RAW_RATE</name>
+              <description>Specifies the desired broadcast rate for all raw sensor data. If set, this overrides the broadcast rate setting for individual raw data broadcast rates. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
+              <bitRange>[7:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+
+        <!-- CREG_COM_RATES3: Broadcast rate settings -->
+        <register>
+          <name>CREG_COM_RATES3</name>
+          <description>The CREG_COM_RATES3 register sets desired telemetry transmission rates for processed sensor data for the sensors: the accelerometer 1, gyro 1, gyro 2, and magnetometer 1. If the specified rate is 0, then no data is transmitted.</description>
+          <addressOffset>0x0C</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- PROC_ACCEL_1_RATE: broadcast rate for processed accelerometer 1 data -->
+            <field>
+              <name>PROC_ACCEL_1_RATE</name>
+              <description>Specifies the desired broadcast rate for processed accelerometer 1 data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[31:24]</bitRange>
               <access>read-write</access>
             </field>
+
+            <!-- PROC_GYRO_1_RATE: broadcast rate for processed rate gyro 1 data -->
+            <field>
+              <name>PROC_GYRO_1_RATE</name>
+              <description>Specifies the desired broadcast rate for processed rate gyro 1 data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
+              <bitRange>[23:16]</bitRange>
+              <access>read-write</access>
+            </field>
+
+            <!-- PROC_GYRO_2_RATE: broadcast rate for processed rate gyro 2 data -->
+            <field>
+              <name>PROC_GYRO_2_RATE</name>
+              <description>Specifies the desired broadcast rate for processed processed rate gyro 2 data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
+              <bitRange>[15:8]</bitRange>
+              <access>read-write</access>
+            </field>
+
+            <!-- PROC_MAG_1_RATE: broadcast rate for processed magnetometer 1 data -->
+            <field>
+              <name>PROC_MAG_1_RATE</name>
+              <description>Specifies the desired broadcast rate for processed magnetometer 1 data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
+              <bitRange>[7:0]</bitRange>
+              <access>read-write</access>
+            </field>
           </fields>
         </register>
 
 
-                <!-- CREG_COM_RATES1: Broadcast rate settings -->
+        <!-- CREG_COM_RATES4: Broadcast rate settings -->
         <register>
-          <name>CREG_COM_RATES1</name>
+          <name>CREG_COM_RATES4</name>
+          <description>The CREG_COM_RATES4 register defines the desired telemetry transmission rates for the processed data for the magnetometer 2, and for all processed data. The ALL_PROC_RATE setting has higher priority over the individual processed sensor data settings, i.e. whenever this bitfield is set, then the individual processed sensor transmission rate settings are ignored and not used. If the specified rate is 0, then no data is transmitted.</description>
+          <addressOffset>0x10</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- PROC_MAG_2_RATE: broadcast rate for processed magnetometer 2 data -->
+            <field>
+              <name>PROC_MAG_2_RATE</name>
+              <description>Specifies the desired broadcast rate for processed magnetometer 2 data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
+              <bitRange>[31:24]</bitRange>
+              <access>read-write</access>
+            </field>
+
+            <!-- ALL_PROC_RATE: broadcast rate for raw all processed sensor data -->
+            <field>
+              <name>ALL_PROC_RATE</name>
+              <description>Specifies the desired broadcast rate for raw all processed sensor data. If set, this overrides the broadcast rate setting for individual processed data broadcast rates. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
+              <bitRange>[7:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+
+        <!-- CREG_COM_RATES5: Broadcast rate settings -->
+        <register>
+          <name>CREG_COM_RATES5</name>
+          <description>The CREG_COM_RATES5 register sets desired telemetry transmission rates for quaternions, Euler Angles, position, and velocity estimates. If the specified rate is 0, then no data is transmitted.</description>
+          <addressOffset>0x14</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+
+            <!-- QUAT_RATE -->
+            <field>
+              <name>QUAT_RATE</name>
+              <description>Specifies the desired broadcast rate for quaternion data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
+              <bitRange>[31:24]</bitRange>
+              <access>read-write</access>
+            </field>
+
+            <!-- EULER_RATE -->
+            <field>
+              <name>EULER_RATE</name>
+              <description>Specifies the desired broadcast rate for Euler Angle data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
+              <bitRange>[23:16]</bitRange>
+              <access>read-write</access>
+            </field>
+
+            <!-- POSITION_RATE -->
+            <field>
+              <name>POSITION_RATE</name>
+              <description>Specifies the desired broadcast rate position. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
+              <bitRange>[15:8]</bitRange>
+              <access>read-write</access>
+            </field>
+
+            <!-- VELOCITY_RATE -->
+            <field>
+              <name>VELOCITY_RATE</name>
+              <description>Specifies the desired broadcast rate for velocity. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
+              <bitRange>[7:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_COM_RATES6: Broadcast rate settings -->
+        <register>
+          <name>CREG_COM_RATES6</name>
+          <description>The CREG_COM_RATES6 register sets desired telemetry transmission rates for pose (Euler/position packet), health, and gyro bias estimates for the gyro 1 and gyro 2. If the specified rate is 0, then no data is transmitted.</description>
+          <addressOffset>0x18</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- POSE_RATE -->
+            <field>
+              <name>POSE_RATE</name>
+              <description>Specifies the desired broadcast rate for pose (Euler Angle and position) data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
+              <bitRange>[31:24]</bitRange>
+              <access>read-write</access>
+            </field>
+
+            <!-- HEALTH_RATE -->
+            <field>
+              <name>HEALTH_RATE</name>
+              <description>Specifies the desired broadcast rate for the sensor health packet.</description>
+              <bitRange>[19:16]</bitRange>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>0</name>
+                  <description>Packet frequency: OFF</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>0_125</name>
+                  <description>Packet frequency: 0.125 Hz</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>0_25</name>
+                  <description>Packet frequency: 0.25 Hz</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>0_5</name>
+                  <description>Packet frequency: 0.5 Hz</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>1</name>
+                  <description>Packet frequency: 1 Hz</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>2</name>
+                  <description>Packet frequency: 2 Hz</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>4</name>
+                  <description>Packet frequency: 4 Hz</description>
+                  <value>6</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+
+            <!-- GYRO_BIAS_1_RATE -->
+            <field>
+              <name>GYRO_BIAS_1_RATE</name>
+              <description>Specifies the desired broadcast rate for gyro 1 bias estimates. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
+              <bitRange>[15:8]</bitRange>
+              <access>read-write</access>
+            </field>
+
+            <!-- GYRO_BIAS_2_RATE -->
+            <field>
+              <name>GYRO_BIAS_2_RATE</name>
+              <description>Specifies the desired broadcast rate for gyro 2 bias estimates. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
+              <bitRange>[7:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_COM_RATES7: Broadcast rate settings -->
+        <register>
+          <name>CREG_COM_RATES7</name>
+          <description>The CREG_COM_RATES7 register sets desired telemetry transmission rates in Hz for NMEA packets.</description>
+          <addressOffset>0x1C</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- HEALTH_RATE -->
+            <field>
+              <name>HEALTH_RATE</name>
+              <description>Specifies the desired broadcast rate for Redshift Labs NMEA-style health packet.</description>
+              <bitRange>[31:28]</bitRange>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>0</name>
+                  <description>Packet frequency: OFF</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>1</name>
+                  <description>Packet frequency: 1 Hz</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>2</name>
+                  <description>Packet frequency: 2 Hz</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>4</name>
+                  <description>Packet frequency: 4 Hz</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>5</name>
+                  <description>Packet frequency: 5 Hz</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>10</name>
+                  <description>Packet frequency: 10 Hz</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>15</name>
+                  <description>Packet frequency: 15 Hz</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>20</name>
+                  <description>Packet frequency: 20 Hz</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>30</name>
+                  <description>Packet frequency: 30 Hz</description>
+                  <value>8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>40</name>
+                  <description>Packet frequency: 40 Hz</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>50</name>
+                  <description>Packet frequency: 50 Hz</description>
+                  <value>10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>60</name>
+                  <description>Packet frequency: 60 Hz</description>
+                  <value>11</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>70</name>
+                  <description>Packet frequency: 70 Hz</description>
+                  <value>12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>80</name>
+                  <description>Packet frequency: 80 Hz</description>
+                  <value>13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>90</name>
+                  <description>Packet frequency: 90 Hz</description>
+                  <value>14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>100</name>
+                  <description>Packet frequency: 100 Hz</description>
+                  <value>15</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+
+            <!-- POSE_RATE -->
+            <field>
+              <name>POSE_RATE</name>
+              <description>Specifies the desired broadcast rate for Redshift Labs NMEA-style pose (Euler Angle/position) packet.</description>
+              <bitRange>[27:24]</bitRange>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>0</name>
+                  <description>Packet frequency: OFF</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>1</name>
+                  <description>Packet frequency: 1 Hz</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>2</name>
+                  <description>Packet frequency: 2 Hz</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>4</name>
+                  <description>Packet frequency: 4 Hz</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>5</name>
+                  <description>Packet frequency: 5 Hz</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>10</name>
+                  <description>Packet frequency: 10 Hz</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>15</name>
+                  <description>Packet frequency: 15 Hz</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>20</name>
+                  <description>Packet frequency: 20 Hz</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>30</name>
+                  <description>Packet frequency: 30 Hz</description>
+                  <value>8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>40</name>
+                  <description>Packet frequency: 40 Hz</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>50</name>
+                  <description>Packet frequency: 50 Hz</description>
+                  <value>10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>60</name>
+                  <description>Packet frequency: 60 Hz</description>
+                  <value>11</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>70</name>
+                  <description>Packet frequency: 70 Hz</description>
+                  <value>12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>80</name>
+                  <description>Packet frequency: 80 Hz</description>
+                  <value>13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>90</name>
+                  <description>Packet frequency: 90 Hz</description>
+                  <value>14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>100</name>
+                  <description>Packet frequency: 100 Hz</description>
+                  <value>15</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+
+            <!-- ATTITUDE_RATE -->
+            <field>
+              <name>ATTITUDE_RATE</name>
+              <description>Specifies the desired broadcast rate for Redshift Labs NMEA-style attitude packet.</description>
+              <bitRange>[23:20]</bitRange>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>0</name>
+                  <description>Packet frequency: OFF</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>1</name>
+                  <description>Packet frequency: 1 Hz</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>2</name>
+                  <description>Packet frequency: 2 Hz</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>4</name>
+                  <description>Packet frequency: 4 Hz</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>5</name>
+                  <description>Packet frequency: 5 Hz</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>10</name>
+                  <description>Packet frequency: 10 Hz</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>15</name>
+                  <description>Packet frequency: 15 Hz</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>20</name>
+                  <description>Packet frequency: 20 Hz</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>30</name>
+                  <description>Packet frequency: 30 Hz</description>
+                  <value>8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>40</name>
+                  <description>Packet frequency: 40 Hz</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>50</name>
+                  <description>Packet frequency: 50 Hz</description>
+                  <value>10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>60</name>
+                  <description>Packet frequency: 60 Hz</description>
+                  <value>11</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>70</name>
+                  <description>Packet frequency: 70 Hz</description>
+                  <value>12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>80</name>
+                  <description>Packet frequency: 80 Hz</description>
+                  <value>13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>90</name>
+                  <description>Packet frequency: 90 Hz</description>
+                  <value>14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>100</name>
+                  <description>Packet frequency: 100 Hz</description>
+                  <value>15</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+
+            <!-- SENSOR_RATE -->
+            <field>
+              <name>SENSOR_RATE</name>
+              <description>Specifies the desired broadcast rate for Redshift Labs NMEA-style sensor data packet.</description>
+              <bitRange>[19:16]</bitRange>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>0</name>
+                  <description>Packet frequency: OFF</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>1</name>
+                  <description>Packet frequency: 1 Hz</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>2</name>
+                  <description>Packet frequency: 2 Hz</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>4</name>
+                  <description>Packet frequency: 4 Hz</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>5</name>
+                  <description>Packet frequency: 5 Hz</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>10</name>
+                  <description>Packet frequency: 10 Hz</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>15</name>
+                  <description>Packet frequency: 15 Hz</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>20</name>
+                  <description>Packet frequency: 20 Hz</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>30</name>
+                  <description>Packet frequency: 30 Hz</description>
+                  <value>8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>40</name>
+                  <description>Packet frequency: 40 Hz</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>50</name>
+                  <description>Packet frequency: 50 Hz</description>
+                  <value>10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>60</name>
+                  <description>Packet frequency: 60 Hz</description>
+                  <value>11</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>70</name>
+                  <description>Packet frequency: 70 Hz</description>
+                  <value>12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>80</name>
+                  <description>Packet frequency: 80 Hz</description>
+                  <value>13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>90</name>
+                  <description>Packet frequency: 90 Hz</description>
+                  <value>14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>100</name>
+                  <description>Packet frequency: 100 Hz</description>
+                  <value>15</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+
+            <!-- RATES_RATE -->
+            <field>
+              <name>RATES_RATE</name>
+              <description>Specifies the desired broadcast rate for Redshift Labs NMEA-style rate data packet.</description>
+              <bitRange>[15:12]</bitRange>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>0</name>
+                  <description>Packet frequency: OFF</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>1</name>
+                  <description>Packet frequency: 1 Hz</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>2</name>
+                  <description>Packet frequency: 2 Hz</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>4</name>
+                  <description>Packet frequency: 4 Hz</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>5</name>
+                  <description>Packet frequency: 5 Hz</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>10</name>
+                  <description>Packet frequency: 10 Hz</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>15</name>
+                  <description>Packet frequency: 15 Hz</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>20</name>
+                  <description>Packet frequency: 20 Hz</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>30</name>
+                  <description>Packet frequency: 30 Hz</description>
+                  <value>8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>40</name>
+                  <description>Packet frequency: 40 Hz</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>50</name>
+                  <description>Packet frequency: 50 Hz</description>
+                  <value>10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>60</name>
+                  <description>Packet frequency: 60 Hz</description>
+                  <value>11</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>70</name>
+                  <description>Packet frequency: 70 Hz</description>
+                  <value>12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>80</name>
+                  <description>Packet frequency: 80 Hz</description>
+                  <value>13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>90</name>
+                  <description>Packet frequency: 90 Hz</description>
+                  <value>14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>100</name>
+                  <description>Packet frequency: 100 Hz</description>
+                  <value>15</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+
+            <!-- GPS_POSE_RATE -->
+            <field>
+              <name>GPS_POSE_RATE</name>
+              <description>Specifies the desired broadcast rate for Redshift Labs NMEA-style GPS pose packet.</description>
+              <bitRange>[11:8]</bitRange>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>0</name>
+                  <description>Packet frequency: OFF</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>1</name>
+                  <description>Packet frequency: 1 Hz</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>2</name>
+                  <description>Packet frequency: 2 Hz</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>4</name>
+                  <description>Packet frequency: 4 Hz</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>5</name>
+                  <description>Packet frequency: 5 Hz</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>10</name>
+                  <description>Packet frequency: 10 Hz</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>15</name>
+                  <description>Packet frequency: 15 Hz</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>20</name>
+                  <description>Packet frequency: 20 Hz</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>30</name>
+                  <description>Packet frequency: 30 Hz</description>
+                  <value>8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>40</name>
+                  <description>Packet frequency: 40 Hz</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>50</name>
+                  <description>Packet frequency: 50 Hz</description>
+                  <value>10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>60</name>
+                  <description>Packet frequency: 60 Hz</description>
+                  <value>11</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>70</name>
+                  <description>Packet frequency: 70 Hz</description>
+                  <value>12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>80</name>
+                  <description>Packet frequency: 80 Hz</description>
+                  <value>13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>90</name>
+                  <description>Packet frequency: 90 Hz</description>
+                  <value>14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>100</name>
+                  <description>Packet frequency: 100 Hz</description>
+                  <value>15</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+
+            <!-- QUAT_RATE -->
+            <field>
+              <name>QUAT_RATE</name>
+              <description>Specifies the desired broadcast rate for Redshift Labs NMEA-style quaternion packet.</description>
+              <bitRange>[7:4]</bitRange>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>0</name>
+                  <description>Packet frequency: OFF</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>1</name>
+                  <description>Packet frequency: 1 Hz</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>2</name>
+                  <description>Packet frequency: 2 Hz</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>4</name>
+                  <description>Packet frequency: 4 Hz</description>
+                  <value>3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>5</name>
+                  <description>Packet frequency: 5 Hz</description>
+                  <value>4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>10</name>
+                  <description>Packet frequency: 10 Hz</description>
+                  <value>5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>15</name>
+                  <description>Packet frequency: 15 Hz</description>
+                  <value>6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>20</name>
+                  <description>Packet frequency: 20 Hz</description>
+                  <value>7</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>30</name>
+                  <description>Packet frequency: 30 Hz</description>
+                  <value>8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>40</name>
+                  <description>Packet frequency: 40 Hz</description>
+                  <value>9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>50</name>
+                  <description>Packet frequency: 50 Hz</description>
+                  <value>10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>60</name>
+                  <description>Packet frequency: 60 Hz</description>
+                  <value>11</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>70</name>
+                  <description>Packet frequency: 70 Hz</description>
+                  <value>12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>80</name>
+                  <description>Packet frequency: 80 Hz</description>
+                  <value>13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>90</name>
+                  <description>Packet frequency: 90 Hz</description>
+                  <value>14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>100</name>
+                  <description>Packet frequency: 100 Hz</description>
+                  <value>15</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+
+          </fields>
+        </register>
+
+        <!-- CREG_MISC_SETTINGS: Misc. settings -->
+        <register>
+          <name>CREG_MISC_SETTINGS</name>
+          <description>This register contains miscellaneous filter and sensor control options.</description>
+          <addressOffset>0x20</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- PPS -->
+            <field>
+              <name>PPS</name>
+              <description>If set, this bit causes the TX2 pin on the IO Expansion header to be used as the PPS input from an external GPS module. PPS pulses will then be used to synchronize the system clock to UTC time of day.</description>
+              <bitRange>[8:8]</bitRange>
+              <access>read-write</access>
+            </field>
+
+            <!-- ZG -->
+            <field>
+              <name>ZG</name>
+              <description>If set, this bit causes the devicee to attempt to measure the rate gyro bias on startup. The sensor must be stationary on startup for this feature to work properly.</description>
+              <bitRange>[3:3]</bitRange>
+              <access>read-write</access>
+            </field>
+
+            <!-- Q -->
+            <field>
+              <name>Q</name>
+              <description>If this bit is set, the sensor will run in quaternion mode instead of Euler Angle mode.</description>
+              <bitRange>[2:2]</bitRange>
+              <access>read-write</access>
+            </field>
+
+            <!-- MAG1 -->
+            <field>
+              <name>MAG1</name>
+              <description>If set, the magnetometer 1 will be used in state updates.</description>
+              <bitRange>[1:1]</bitRange>
+              <access>read-write</access>
+            </field>
+
+            <!-- MAG2 -->
+            <field>
+              <name>MAG2</name>
+              <description>If set, the magnetometer 2 will be used in state updates.</description>
+              <bitRange>[0:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CREG_GYRO_1_MEAS_RANGE: Gyro 1 measurement range settings -->
+        <register>
+          <name>CREG_GYRO_1_MEAS_RANGE</name>
+          <description>The CREG_GYRO_1_MEAS_RANGE register sets the desired measurement range for the gyro 1 sensor. If the rate is not set, then the default value of 2000 deg/s will be used as a measurement range.</description>
+          <addressOffset>0x24</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MEAS_GYRO1 -->
+            <field>
+              <name>MEAS_GYRO1</name>
+              <description>Specifies the desired measurement range for the gyro 1 measurements.</description>
+              <bitRange>[1:0]</bitRange>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>2000</name>
+                  <description>Measurement range: +- 2000 dps</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>1000</name>
+                  <description>Measurement range: +- 1000 dps</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>500</name>
+                  <description>Measurement range: +- 500 dps</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>250</name>
+                  <description>Measurement range: +- 250 dps</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+          </fields>
+        </register>
+
+                <!-- CREG_COM_RATES5: Broadcast rate settings -->
+        <register>
+          <name>CREG_COM_RATES5</name>
           <description>The CREG_COM_RATES1 register sets desired telemetry transmission rates in Hz for raw accelerometer 1, gyro 1, gyro 2 and magnetometer 1 data. If the specified rate is 0, then no data is transmitted.</description>
-          <addressOffset>0x04</addressOffset>
+          <addressOffset>0x14</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- RAW_MAG_1_RATE: raw magnetometer 1 data broadcast rate -->
+            <field>
+              <name>RAW_MAG_1_RATE</name>
+              <description>Specifies the desired raw magnetometer 1 data broadcast rate in Hz. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
+              <bitRange>[7:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+                <!-- CREG_COM_RATES5: Broadcast rate settings -->
+        <register>
+          <name>CREG_COM_RATES5</name>
+          <description>The CREG_COM_RATES1 register sets desired telemetry transmission rates in Hz for raw accelerometer 1, gyro 1, gyro 2 and magnetometer 1 data. If the specified rate is 0, then no data is transmitted.</description>
+          <addressOffset>0x14</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- RAW_MAG_1_RATE: raw magnetometer 1 data broadcast rate -->
+            <field>
+              <name>RAW_MAG_1_RATE</name>
+              <description>Specifies the desired raw magnetometer 1 data broadcast rate in Hz. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
+              <bitRange>[7:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+                <!-- CREG_COM_RATES5: Broadcast rate settings -->
+        <register>
+          <name>CREG_COM_RATES5</name>
+          <description>The CREG_COM_RATES1 register sets desired telemetry transmission rates in Hz for raw accelerometer 1, gyro 1, gyro 2 and magnetometer 1 data. If the specified rate is 0, then no data is transmitted.</description>
+          <addressOffset>0x14</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- RAW_MAG_1_RATE: raw magnetometer 1 data broadcast rate -->
+            <field>
+              <name>RAW_MAG_1_RATE</name>
+              <description>Specifies the desired raw magnetometer 1 data broadcast rate in Hz. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
+              <bitRange>[7:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+
+                <!-- CREG_COM_RATES5: Broadcast rate settings -->
+        <register>
+          <name>CREG_COM_RATES5</name>
+          <description>The CREG_COM_RATES1 register sets desired telemetry transmission rates in Hz for raw accelerometer 1, gyro 1, gyro 2 and magnetometer 1 data. If the specified rate is 0, then no data is transmitted.</description>
+          <addressOffset>0x14</addressOffset>
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
@@ -268,49 +1275,6 @@
         </register>
 
 
-
-                <!-- CREG_COM_RATES1: Broadcast rate settings -->
-        <register>
-          <name>CREG_COM_RATES1</name>
-          <description>The CREG_COM_RATES1 register sets desired telemetry transmission rates in Hz for raw accelerometer 1, gyro 1, gyro 2 and magnetometer 1 data. If the specified rate is 0, then no data is transmitted.</description>
-          <addressOffset>0x04</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
-
-          <fields>
-            <!-- RAW_MAG_1_RATE: raw magnetometer 1 data broadcast rate -->
-            <field>
-              <name>RAW_MAG_1_RATE</name>
-              <description>Specifies the desired raw magnetometer 1 data broadcast rate in Hz. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
-              <bitRange>[7:0]</bitRange>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-
-
-                <!-- CREG_COM_RATES1: Broadcast rate settings -->
-        <register>
-          <name>CREG_COM_RATES1</name>
-          <description>The CREG_COM_RATES1 register sets desired telemetry transmission rates in Hz for raw accelerometer 1, gyro 1, gyro 2 and magnetometer 1 data. If the specified rate is 0, then no data is transmitted.</description>
-          <addressOffset>0x04</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
-
-          <fields>
-            <!-- RAW_MAG_1_RATE: raw magnetometer 1 data broadcast rate -->
-            <field>
-              <name>RAW_MAG_1_RATE</name>
-              <description>Specifies the desired raw magnetometer 1 data broadcast rate in Hz. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
-              <bitRange>[7:0]</bitRange>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
 
       </registers>
     </peripheral>
