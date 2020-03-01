@@ -3309,7 +3309,7 @@
         <register>
           <name>DREG_EULER_TIME</name>
           <description>Contains the time that the Euler Angles were estimated.</description>
-          <addressOffset>0x21C</addressOffset>
+          <addressOffset>0x214</addressOffset>
           <size>32</size>
           <access>read-only</access>
           <resetValue>0x00000000</resetValue>
@@ -3325,6 +3325,301 @@
             </field>
           </fields>
         </register>
+
+        <!-- DREG_POSITION_NORTH -->
+        <register>
+          <name>DREG_POSITION_NORTH</name>
+          <description>Contains the measured north position in meters from the latitude specified in CREG_HOME_NORTH.</description>
+          <addressOffset>0x218</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- POSITION_NORTH -->
+            <field>
+              <name>POSITION_NORTH</name>
+              <description>North Position (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_POSITION_EAST -->
+        <register>
+          <name>DREG_POSITION_EAST</name>
+          <description>Contains the measured east position in meters from the longitude specified in CREG_HOME_EAST.</description>
+          <addressOffset>0x21C</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- POSITION_EAST -->
+            <field>
+              <name>POSITION_EAST</name>
+              <description>East Position (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_POSITION_UP -->
+        <register>
+          <name>DREG_POSITION_UP</name>
+          <description>Contains the measured altitude in meters from the altitude specified in CREG_HOME_UP.</description>
+          <addressOffset>0x220</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- POSITION_UP -->
+            <field>
+              <name>POSITION_UP</name>
+              <description>Altitude (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_POSITION_TIME -->
+        <register>
+          <name>DREG_POSITION_TIME</name>
+          <description>Contains the time at which the position was acquired.</description>
+          <addressOffset>0x224</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- POSITION_TIME -->
+            <field>
+              <name>POSITION_TIME</name>
+              <description>Position Time (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_VELOCITY_NORTH -->
+        <register>
+          <name>DREG_VELOCITY_NORTH</name>
+          <description>Contains the measured north velocity in m/s.</description>
+          <addressOffset>0x228</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- VELOCITY_NORTH -->
+            <field>
+              <name>VELOCITY_NORTH</name>
+              <description>North Velocity (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_VELOCITY_EAST -->
+        <register>
+          <name>DREG_VELOCITY_EAST</name>
+          <description>Contains the measured east velocity in m/s.</description>
+          <addressOffset>0x22C</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- VELOCITY_EAST -->
+            <field>
+              <name>VELOCITY_EAST</name>
+              <description>East Velocity (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_VELOCITY_UP -->
+        <register>
+          <name>DREG_VELOCITY_UP</name>
+          <description>Contains the measured altitude velocity in m/s.</description>
+          <addressOffset>0x230</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- VELOCITY_UP -->
+            <field>
+              <name>VELOCITY_UP</name>
+              <description>Altitude Velocity (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_VELOCITY_TIME -->
+        <register>
+          <name>DREG_VELOCITY_TIME</name>
+          <description>Contains the time at which the velocity was measured.</description>
+          <addressOffset>0x234</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- VELOCITY_TIME -->
+            <field>
+              <name>VELOCITY_TIME</name>
+              <description>Velocity time (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_GYRO_1_BIAS_X -->
+        <register>
+          <name>DREG_GYRO_1_BIAS_X</name>
+          <description>Contains the estimated x-axis bias for the gyro 1 in degrees/s.</description>
+          <addressOffset>0x238</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- GYRO_1_BIAS_X -->
+            <field>
+              <name>GYRO_1_BIAS_X</name>
+              <description>Gyro 1 bias X (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_GYRO_1_BIAS_Y -->
+        <register>
+          <name>DREG_GYRO_1_BIAS_Y</name>
+          <description>Contains the estimated y-axis bias for the gyro 1 in degrees/s.</description>
+          <addressOffset>0x23C</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- GYRO_1_BIAS_Y -->
+            <field>
+              <name>GYRO_1_BIAS_Y</name>
+              <description>Gyro 1 bias Y (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_GYRO_1_BIAS_Z -->
+        <register>
+          <name>DREG_GYRO_1_BIAS_Z</name>
+          <description>Contains the estimated z-axis bias for the gyro 1 in degrees/s.</description>
+          <addressOffset>0x240</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- GYRO_1_BIAS_Z -->
+            <field>
+              <name>GYRO_1_BIAS_Z</name>
+              <description>Gyro 1 bias Z (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_GYRO_2_BIAS_X -->
+        <register>
+          <name>DREG_GYRO_2_BIAS_X</name>
+          <description>Contains the estimated x-axis bias for the gyro 2 in degrees/s.</description>
+          <addressOffset>0x244</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- GYRO_2_BIAS_X -->
+            <field>
+              <name>GYRO_2_BIAS_X</name>
+              <description>Gyro 2 bias X (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_GYRO_2_BIAS_Y -->
+        <register>
+          <name>DREG_GYRO_2_BIAS_Y</name>
+          <description>Contains the estimated y-axis bias for the gyro 2 in degrees/s.</description>
+          <addressOffset>0x248</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- GYRO_2_BIAS_Y -->
+            <field>
+              <name>GYRO_2_BIAS_Y</name>
+              <description>Gyro 2 bias Y (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_GYRO_2_BIAS_Z -->
+        <register>
+          <name>DREG_GYRO_2_BIAS_Z</name>
+          <description>Contains the estimated z-axis bias for the gyro 2 in degrees/s.</description>
+          <addressOffset>0x24C</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- GYRO_2_BIAS_Z -->
+            <field>
+              <name>GYRO_2_BIAS_Z</name>
+              <description>Gyro 2 bias Z (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
 
       </registers>
     </peripheral>
