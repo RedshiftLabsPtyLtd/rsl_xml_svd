@@ -3621,6 +3621,526 @@
         </register>
 
 
+        <!-- GET_FW_BUILD_ID -->
+        <register>
+          <name>GET_FW_BUILD_ID</name>
+          <description>Firmware build identification string: a four byte ASCII character sequence which corresponds to a firmware series.</description>
+          <addressOffset>0x2A8</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- FW_BUILD_ID -->
+            <field>
+              <name>FW_BUILD_ID</name>
+              <description>Firmware Build ID string</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- GET_FW_BUILD_VERSION -->
+        <register>
+          <name>GET_FW_BUILD_VERSION</name>
+          <description>Firmware build version provides the unique identifier of the firmware programmed in the board. A response is four bytes long and identifies major and minor build version, and the build number.</description>
+          <addressOffset>0x2AC</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- VERSION_MAJOR -->
+            <field>
+              <name>VERSION_MAJOR</name>
+              <description>8-bit unsigned integer major version number</description>
+              <bitRange>[31:24]</bitRange>
+              <access>read-only</access>
+            </field>
+
+            <!-- VERSION_MINOR -->
+            <field>
+              <name>VERSION_MINOR</name>
+              <description>8-bit unsigned integer minor version number</description>
+              <bitRange>[23:16]</bitRange>
+              <access>read-only</access>
+            </field>
+
+            <!-- BUILD_ID -->
+            <field>
+              <name>BUILD_ID</name>
+              <description>16-bit unsigned integer build ID number</description>
+              <bitRange>[15:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- FLASH_COMMIT -->
+        <register>
+          <name>FLASH_COMMIT</name>
+          <description>Causes the board to write all configuration settings to FLASH so that are stored in the non-volatile memory and remain when the power is cycled.</description>
+          <addressOffset>0x2B0</addressOffset>
+          <size>32</size>
+          <access>write-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- FLASH_COMMIT_BIT -->
+            <field>
+              <name>FLASH_COMMIT_BIT</name>
+              <description>Flash commit bit</description>
+              <bitRange>[1:0]</bitRange>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- RESET_TO_FACTORY -->
+        <register>
+          <name>RESET_TO_FACTORY</name>
+          <description>Causes the board to load default factory settings.</description>
+          <addressOffset>0x2B4</addressOffset>
+          <size>32</size>
+          <access>write-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- RESET_TO_FACTORY_BIT -->
+            <field>
+              <name>RESET_TO_FACTORY_BIT</name>
+              <description>Reset to factory bit</description>
+              <bitRange>[1:0]</bitRange>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- ZERO_GYROS -->
+        <register>
+          <name>ZERO_GYROS</name>
+          <description>Causes the board to measure the gyro outputs and set the output trim registers to compensate for any non-zero bias. The board should be kept stationary while the zero operation is underway.</description>
+          <addressOffset>0x2B8</addressOffset>
+          <size>32</size>
+          <access>write-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ZERO_GYROS_BIT -->
+            <field>
+              <name>ZERO_GYROS_BIT</name>
+              <description>Zero gyros bit</description>
+              <bitRange>[1:0]</bitRange>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- SET_HOME_POSITION -->
+        <register>
+          <name>SET_HOME_POSITION</name>
+          <description>Sets the current GPS latitude, longitude, and altitude as the home position. All future positions will be referenced to the current GPS position.</description>
+          <addressOffset>0x2C0</addressOffset>
+          <size>32</size>
+          <access>write-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- SET_HOME_POSITION_BIT -->
+            <field>
+              <name>SET_HOME_POSITION_BIT</name>
+              <description>Set home position bit</description>
+              <bitRange>[1:0]</bitRange>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- SET_MAG_REFERENCE -->
+        <register>
+          <name>SET_MAG_REFERENCE</name>
+          <description>Sets the current yaw heading position as north.</description>
+          <addressOffset>0x2C4</addressOffset>
+          <size>32</size>
+          <access>write-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- SET_MAG_REFERENCE_BIT -->
+            <field>
+              <name>SET_MAG_REFERENCE_BIT</name>
+              <description>Set magnetometer reference bit</description>
+              <bitRange>[1:0]</bitRange>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- CALIBRATE_ACCELEROMETERS -->
+        <register>
+          <name>CALIBRATE_ACCELEROMETERS</name>
+          <description>Reboots the board and performs a crude calibration on the accelerometers. Best performed on a flat surface.</description>
+          <addressOffset>0x2C8</addressOffset>
+          <size>32</size>
+          <access>write-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- CALIBRATE_ACCELEROMETERS_BIT -->
+            <field>
+              <name>CALIBRATE_ACCELEROMETERS_BIT</name>
+              <description>Calibrate accelerometers bit</description>
+              <bitRange>[1:0]</bitRange>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- RESET_FUSION -->
+        <register>
+          <name>RESET_FUSION</name>
+          <description>Resets the sensor fusion algorithm.</description>
+          <addressOffset>0x2CC</addressOffset>
+          <size>32</size>
+          <access>write-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- RESET_FUSION_BIT -->
+            <field>
+              <name>RESET_FUSION_BIT</name>
+              <description>Reset fusion bit</description>
+              <bitRange>[1:0]</bitRange>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- ENABLE_ZUPT -->
+        <register>
+          <name>ENABLE_ZUPT</name>
+          <description>Enable zero velocity update.</description>
+          <addressOffset>0x2D0</addressOffset>
+          <size>32</size>
+          <access>write-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ENABLE_ZUPT_BIT -->
+            <field>
+              <name>ENABLE_ZUPT_BIT</name>
+              <description>Enable zero velocity update bit</description>
+              <bitRange>[1:0]</bitRange>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- EULER_MODE -->
+        <register>
+          <name>EULER_MODE</name>
+          <description>Enable as fusion output Euler angles only.</description>
+          <addressOffset>0x2D4</addressOffset>
+          <size>32</size>
+          <access>write-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- EULER_MODE_BIT -->
+            <field>
+              <name>EULER_MODE_BIT</name>
+              <description>Fusion Euler mode bit</description>
+              <bitRange>[1:0]</bitRange>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- QUATERNION_MODE -->
+        <register>
+          <name>QUATERNION_MODE</name>
+          <description>Enable as fusion output orientation quaternion only.</description>
+          <addressOffset>0x2D8</addressOffset>
+          <size>32</size>
+          <access>write-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- QUATERNION_MODE_BIT -->
+            <field>
+              <name>QUATERNION_MODE_BIT</name>
+              <description>Fusion quaternion mode bit</description>
+              <bitRange>[1:0]</bitRange>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- ENABLE_RT_CALIBRATION -->
+        <register>
+          <name>ENABLE_RT_CALIBRATION</name>
+          <description>Starts RT calibration of the board.</description>
+          <addressOffset>0x2DC</addressOffset>
+          <size>32</size>
+          <access>write-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ENABLE_RT_CALIBRATION_BIT -->
+            <field>
+              <name>ENABLE_RT_CALIBRATION_BIT</name>
+              <description>RT calibration bit</description>
+              <bitRange>[1:0]</bitRange>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- EN_MAG_ANOMALY_DETECTION -->
+        <register>
+          <name>EN_MAG_ANOMALY_DETECTION</name>
+          <description>Enables algorithm for anomaly detection.</description>
+          <addressOffset>0x2E0</addressOffset>
+          <size>32</size>
+          <access>write-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- EN_MAG_ANOMALY_DETECTION_BIT -->
+            <field>
+              <name>EN_MAG_ANOMALY_DETECTION_BIT</name>
+              <description>Magnetic field anomaly detection bit</description>
+              <bitRange>[1:0]</bitRange>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- RUN_SELF_TESTS -->
+        <register>
+          <name>RUN_SELF_TESTS</name>
+          <description>Starts built-in self tests.</description>
+          <addressOffset>0x2E4</addressOffset>
+          <size>32</size>
+          <access>write-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- RUN_SELF_TESTS_BIT -->
+            <field>
+              <name>RUN_SELF_TESTS_BIT</name>
+              <description>Run self tests bit</description>
+              <bitRange>[1:0]</bitRange>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- ENABLE_EXTERNAL_EVENT -->
+        <register>
+          <name>ENABLE_EXTERNAL_EVENT</name>
+          <description>TODO: add description</description>
+          <addressOffset>0x2E8</addressOffset>
+          <size>32</size>
+          <access>write-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ENABLE_EXTERNAL_EVENT_BIT -->
+            <field>
+              <name>ENABLE_EXTERNAL_EVENT_BIT</name>
+              <description>Enable external event bit</description>
+              <bitRange>[1:0]</bitRange>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- ENABLE_GNNS_FUSION -->
+        <register>
+          <name>ENABLE_GNNS_FUSION</name>
+          <description>TODO: add description</description>
+          <addressOffset>0x2EC</addressOffset>
+          <size>32</size>
+          <access>write-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ENABLE_GNNS_FUSION_BIT -->
+            <field>
+              <name>ENABLE_GNNS_FUSION_BIT</name>
+              <description>Enable GNSS fusion bit</description>
+              <bitRange>[1:0]</bitRange>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- ENABLE_USR_EULER_OUTPUT -->
+        <register>
+          <name>ENABLE_USR_EULER_OUTPUT</name>
+          <description>TODO: add description</description>
+          <addressOffset>0x2F0</addressOffset>
+          <size>32</size>
+          <access>write-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ENABLE_USR_EULER_OUTPUT_BIT -->
+            <field>
+              <name>ENABLE_USR_EULER_OUTPUT_BIT</name>
+              <description>Enable user Euler output bit</description>
+              <bitRange>[1:0]</bitRange>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- ENABLE_DEAD_RECKONING -->
+        <register>
+          <name>ENABLE_DEAD_RECKONING</name>
+          <description>TODO: add description</description>
+          <addressOffset>0x2F4</addressOffset>
+          <size>32</size>
+          <access>write-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ENABLE_DEAD_RECKONING_BIT -->
+            <field>
+              <name>ENABLE_DEAD_RECKONING_BIT</name>
+              <description>Enable dead reckoning bit</description>
+              <bitRange>[1:0]</bitRange>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- ENABLE_HEAVE_SWAY_SURGE -->
+        <register>
+          <name>ENABLE_HEAVE_SWAY_SURGE</name>
+          <description>TODO: add description</description>
+          <addressOffset>0x2F8</addressOffset>
+          <size>32</size>
+          <access>write-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ENABLE_HEAVE_SWAY_SURGE_BIT -->
+            <field>
+              <name>ENABLE_HEAVE_SWAY_SURGE_BIT</name>
+              <description>Enable heave sway surge bit</description>
+              <bitRange>[1:0]</bitRange>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- ENABLE_UKF -->
+        <register>
+          <name>ENABLE_UKF</name>
+          <description>TODO: add description</description>
+          <addressOffset>0x2FC</addressOffset>
+          <size>32</size>
+          <access>write-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ENABLE_UKF_BIT -->
+            <field>
+              <name>ENABLE_UKF_BIT</name>
+              <description>Enable UKF bit</description>
+              <bitRange>[1:0]</bitRange>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- BOARD_UNIQUE_ID_1 -->
+        <register>
+          <name>BOARD_UNIQUE_ID_1</name>
+          <description>First 32-bits of the 64-bits of the board unique identifier. Bits of the unique identifier cannot be modified by the user.</description>
+          <addressOffset>0x3F4</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- BOARD_UNIQUE_ID_1 -->
+            <field>
+              <name>BOARD_UNIQUE_ID_1_BTIS</name>
+              <description>Board unique ID bits</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- BOARD_UNIQUE_ID_2 -->
+        <register>
+          <name>BOARD_UNIQUE_ID_2</name>
+          <description>Last 32-bits of the 64-bits of the board unique identifier. Bits of the unique identifier cannot be modified by the user.</description>
+          <addressOffset>0x3F8</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- BOARD_UNIQUE_ID_2 -->
+            <field>
+              <name>BOARD_UNIQUE_ID_2_BTIS</name>
+              <description>Board unique ID bits</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- PROTOCOL_VERSION -->
+        <register>
+          <name>PROTOCOL_VERSION</name>
+          <description>String version of the protocol.</description>
+          <addressOffset>0x3FC</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- PROTOCOL_VERSION_STR -->
+            <field>
+              <name>PROTOCOL_VERSION_STR</name>
+              <description>Protocol version string</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
       </registers>
     </peripheral>
   </peripherals>
