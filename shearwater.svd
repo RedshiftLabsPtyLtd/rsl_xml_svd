@@ -2915,6 +2915,296 @@
         </register>
 
 
+        <!-- DREG_MAG_1_PROC_X -->
+        <register>
+          <name>DREG_MAG_1_PROC_X</name>
+          <description>Contains the actual measured magnetic field from the magnetometer 1 for the x axis in mT after calibration has been applied.</description>
+          <addressOffset>0x1D0</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_1_PROC_X -->
+            <field>
+              <name>MAG_1_PROC_X</name>
+              <description>Magnetometer X in mT (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_MAG_1_PROC_Y -->
+        <register>
+          <name>DREG_MAG_1_PROC_Y</name>
+          <description>Contains the actual measured magnetic field from the magnetometer 1 for the y axis in mT after calibration has been applied.</description>
+          <addressOffset>0x1D4</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_1_PROC_Y -->
+            <field>
+              <name>MAG_1_PROC_Y</name>
+              <description>Magnetometer Y in mT (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_MAG_1_PROC_Z -->
+        <register>
+          <name>DREG_MAG_1_PROC_Z</name>
+          <description>Contains the actual measured magnetic field from the magnetometer 1 for the z axis in mT after calibration has been applied.</description>
+          <addressOffset>0x1D8</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_1_PROC_Z -->
+            <field>
+              <name>MAG_1_PROC_Z</name>
+              <description>Magnetometer Z in mT (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_MAG_1_NORM -->
+        <register>
+          <name>DREG_MAG_1_NORM</name>
+          <description>Contains the L2-norm (magnetic norm) for the measured magnetic field from the magnetometer 1 computed over the calibrated values.</description>
+          <addressOffset>0x1DC</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_1_NORM -->
+            <field>
+              <name>MAG_1_NORM</name>
+              <description>Magnetic norm (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_MAG_1_PROC_TIME -->
+        <register>
+          <name>DREG_MAG_1_PROC_TIME</name>
+          <description>Contains the time stamp at which the calibrated magnetometer 1 data was acquired.</description>
+          <addressOffset>0x1E0</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_1_PROC_TIME -->
+            <field>
+              <name>MAG_1_PROC_TIME</name>
+              <description>Magnetometer 1 time stamp (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+
+        <!-- DREG_MAG_2_PROC_X -->
+        <register>
+          <name>DREG_MAG_2_PROC_X</name>
+          <description>Contains the actual measured magnetic field from the magnetometer 2 for the x axis in mT after calibration has been applied.</description>
+          <addressOffset>0x1E4</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_2_PROC_X -->
+            <field>
+              <name>MAG_2_PROC_X</name>
+              <description>Magnetometer X in mT (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_MAG_2_PROC_Y -->
+        <register>
+          <name>DREG_MAG_2_PROC_Y</name>
+          <description>Contains the actual measured magnetic field from the magnetometer 2 for the y axis in mT after calibration has been applied.</description>
+          <addressOffset>0x1E8</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_2_PROC_Y -->
+            <field>
+              <name>MAG_2_PROC_Y</name>
+              <description>Magnetometer Y in mT (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_MAG_2_PROC_Z -->
+        <register>
+          <name>DREG_MAG_2_PROC_Z</name>
+          <description>Contains the actual measured magnetic field from the magnetometer 2 for the z axis in mT after calibration has been applied.</description>
+          <addressOffset>0x1EC</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_2_PROC_Z -->
+            <field>
+              <name>MAG_2_PROC_Z</name>
+              <description>Magnetometer Z in mT (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_MAG_2_NORM -->
+        <register>
+          <name>DREG_MAG_2_NORM</name>
+          <description>Contains the L2-norm (magnetic norm) for the measured magnetic field from the magnetometer 2 computed over the calibrated values.</description>
+          <addressOffset>0x1F0</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_2_NORM -->
+            <field>
+              <name>MAG_2_NORM</name>
+              <description>Magnetic norm (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_MAG_2_PROC_TIME -->
+        <register>
+          <name>DREG_MAG_2_PROC_TIME</name>
+          <description>Contains the time stamp at which the calibrated magnetometer 2 data was acquired.</description>
+          <addressOffset>0x1F4</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- MAG_2_PROC_TIME -->
+            <field>
+              <name>MAG_2_PROC_TIME</name>
+              <description>Magnetometer 2 time stamp (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_QUAT_AB -->
+        <register>
+          <name>DREG_QUAT_AB</name>
+          <description>Contains the first two components (a and b) of the estimated quaternion attitude.</description>
+          <addressOffset>0x1F8</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- QUAT_A -->
+            <field>
+              <name>QUAT_A</name>
+              <description>First quaternion component. Stored as a 16-bit signed integer. To get the actual value, divide by 29789.09091.</description>
+              <bitRange>[31:16]</bitRange>
+              <access>read-only</access>
+            </field>
+
+            <!-- QUAT_B -->
+            <field>
+              <name>QUAT_B</name>
+              <description>Second quaternion component. Stored as a 16-bit signed integer. To get the actual value, divide by 29789.09091.</description>
+              <bitRange>[15:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_QUAT_CD -->
+        <register>
+          <name>DREG_QUAT_CD</name>
+          <description>Contains the second two components (c and d) of the estimated quaternion attitude.</description>
+          <addressOffset>0x1FC</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- QUAT_C -->
+            <field>
+              <name>QUAT_C</name>
+              <description>Third quaternion component. Stored as a 16-bit signed integer. To get the actual value, divide by 29789.09091.</description>
+              <bitRange>[31:16]</bitRange>
+              <access>read-only</access>
+            </field>
+
+            <!-- QUAT_D -->
+            <field>
+              <name>QUAT_D</name>
+              <description>Fourth quaternion component. Stored as a 16-bit signed integer. To get the actual value, divide by 29789.09091.</description>
+              <bitRange>[15:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_QUAT_TIME -->
+        <register>
+          <name>DREG_QUAT_TIME</name>
+          <description>Contains the time that the quaternion attitude was estimated.</description>
+          <addressOffset>0x200</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- QUAT_TIME -->
+            <field>
+              <name>QUAT_TIME</name>
+              <description>Quaternion time (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
       </registers>
     </peripheral>
   </peripherals>
