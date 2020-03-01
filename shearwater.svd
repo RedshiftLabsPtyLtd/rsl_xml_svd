@@ -3205,6 +3205,127 @@
           </fields>
         </register>
 
+        <!-- DREG_EULER_PHI_THETA -->
+        <register>
+          <name>DREG_EULER_PHI_THETA</name>
+          <description>Contains the pitch and roll angle estimates.</description>
+          <addressOffset>0x204</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- PHI -->
+            <field>
+              <name>PHI</name>
+              <description>Roll angle. Stored as a 16-bit signed integer. To get the actual value, divide by 91.02222.</description>
+              <bitRange>[31:16]</bitRange>
+              <access>read-only</access>
+            </field>
+
+            <!-- THETA -->
+            <field>
+              <name>THETA</name>
+              <description>Pitch angle. Stored as a 16-bit signed integer. To get the actual value, divide by 91.02222.</description>
+              <bitRange>[15:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_EULER_PSI -->
+        <register>
+          <name>DREG_EULER_PSI</name>
+          <description>Contains the yaw angle estimate.</description>
+          <addressOffset>0x208</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- PSI -->
+            <field>
+              <name>PSI</name>
+              <description>Yaw angle. Stored as a 16-bit signed integer. To get the actual value, divide by 91.02222.</description>
+              <bitRange>[31:16]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_EULER_PHI_THETA_DOT -->
+        <register>
+          <name>DREG_EULER_PHI_THETA_DOT</name>
+          <description>Contains the pitch and roll rate estimates.</description>
+          <addressOffset>0x20C</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- PHI_DOT -->
+            <field>
+              <name>PHI_DOT</name>
+              <description>Roll rate. Stored as a 16-bit signed integer. To get the actual value, divide by 16.0.</description>
+              <bitRange>[31:16]</bitRange>
+              <access>read-only</access>
+            </field>
+
+            <!-- THETA_DOT -->
+            <field>
+              <name>THETA_DOT</name>
+              <description>Pitch rate. Stored as a 16-bit signed integer. To get the actual value, divide by 16.0.</description>
+              <bitRange>[15:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_EULER_PSI_DOT -->
+        <register>
+          <name>DREG_EULER_PSI_DOT</name>
+          <description>Contains the yaw rate estimate.</description>
+          <addressOffset>0x210</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- PSI_DOT -->
+            <field>
+              <name>PSI_DOT</name>
+              <description>Yaw rate. Stored as a 16-bit signed integer. To get the actual value, divide by 16.0.</description>
+              <bitRange>[31:16]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_EULER_TIME -->
+        <register>
+          <name>DREG_EULER_TIME</name>
+          <description>Contains the time that the Euler Angles were estimated.</description>
+          <addressOffset>0x21C</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- EULER_TIME -->
+            <field>
+              <name>EULER_TIME</name>
+              <description>Euler time (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
       </registers>
     </peripheral>
   </peripherals>
