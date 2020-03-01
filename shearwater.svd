@@ -2745,6 +2745,175 @@
           </fields>
         </register>
 
+        <!-- DREG_GYRO_2_PROC_X -->
+        <register>
+          <name>DREG_GYRO_2_PROC_X</name>
+          <description>Contains the actual measured angular rate from the gyro 2 for the x axis in degrees/sec after calibration has been applied.</description>
+          <addressOffset>0x1B0</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- GYRO_2_PROC_X -->
+            <field>
+              <name>GYRO_2_PROC_X</name>
+              <description>Gyro X in degrees / sec (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_GYRO_2_PROC_Y -->
+        <register>
+          <name>DREG_GYRO_2_PROC_Y</name>
+          <description>Contains the actual measured angular rate from the gyro 2 for the y axis in degrees/sec after calibration has been applied.</description>
+          <addressOffset>0x1B4</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- GYRO_2_PROC_Y -->
+            <field>
+              <name>GYRO_2_PROC_Y</name>
+              <description>Gyro Y in degrees / sec (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_GYRO_2_PROC_Z -->
+        <register>
+          <name>DREG_GYRO_2_PROC_Z</name>
+          <description>Contains the actual measured angular rate from the gyro 2 for the z axis in degrees/sec after calibration has been applied.</description>
+          <addressOffset>0x1B8</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- GYRO_2_PROC_Z -->
+            <field>
+              <name>GYRO_2_PROC_Z</name>
+              <description>Gyro Z in degrees / sec (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_GYRO_2_PROC_TIME -->
+        <register>
+          <name>DREG_GYRO_2_PROC_TIME</name>
+          <description>Contains the time at which the last rate gyro data from the gyro 2 was measured.</description>
+          <addressOffset>0x1BC</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- GYRO_2_PROC_TIME -->
+            <field>
+              <name>GYRO_2_PROC_TIME</name>
+              <description>Gyro 2 time stamp (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+
+        <!-- DREG_ACCEL_1_PROC_X -->
+        <register>
+          <name>DREG_ACCEL_1_PROC_X</name>
+          <description>Contains the actual measured acceleration from the accelerometer 1 for the x axis in m/s2 after calibration has been applied.</description>
+          <addressOffset>0x1C0</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ACCEL_1_PROC_X -->
+            <field>
+              <name>ACCEL_1_PROC_X</name>
+              <description>Acceleration X in m/s2 (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_ACCEL_1_PROC_Y -->
+        <register>
+          <name>DREG_ACCEL_1_PROC_Y</name>
+          <description>Contains the actual measured acceleration from the accelerometer 1 for the y axis in m/s2 after calibration has been applied.</description>
+          <addressOffset>0x1C4</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ACCEL_1_PROC_Y -->
+            <field>
+              <name>ACCEL_1_PROC_Y</name>
+              <description>Acceleration Y in m/s2 (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_ACCEL_1_PROC_Z -->
+        <register>
+          <name>DREG_ACCEL_1_PROC_Z</name>
+          <description>Contains the actual measured acceleration from the accelerometer 1 for the z axis in m/s2 after calibration has been applied.</description>
+          <addressOffset>0x1C8</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ACCEL_1_PROC_Z -->
+            <field>
+              <name>ACCEL_1_PROC_Z</name>
+              <description>Acceleration Z in m/s2 (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- DREG_ACCEL_1_PROC_TIME -->
+        <register>
+          <name>DREG_ACCEL_1_PROC_TIME</name>
+          <description>Contains the time at which the last acceleration data from the accelerometer 1 was measured.</description>
+          <addressOffset>0x1CC</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- ACCEL_1_PROC_TIME -->
+            <field>
+              <name>ACCEL_1_PROC_TIME</name>
+              <description>Accelerometer 1 time stamp (32-bit IEEE Floating Point Value)</description>
+              <bitRange>[31:0]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
 
       </registers>
     </peripheral>
