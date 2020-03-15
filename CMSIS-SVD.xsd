@@ -124,22 +124,17 @@
   <!-- dataType pre-defines the tokens in line with CMSIS data type definitions -->
   <xs:simpleType name="dataTypeType">
     <xs:restriction base="xs:token">
+      <xs:enumeration value="bitField"/>
       <xs:enumeration value="uint8_t"/>
-      <xs:enumeration value="uint16_t"/>
-      <xs:enumeration value="uint32_t"/>
-      <xs:enumeration value="uint64_t"/>
       <xs:enumeration value="int8_t"/>
+      <xs:enumeration value="uint16_t"/>
       <xs:enumeration value="int16_t"/>
+      <xs:enumeration value="uint32_t"/>
       <xs:enumeration value="int32_t"/>
+      <xs:enumeration value="uint64_t"/>
       <xs:enumeration value="int64_t"/>
-      <xs:enumeration value="uint8_t *"/>
-      <xs:enumeration value="uint16_t *"/>
-      <xs:enumeration value="uint32_t *"/>
-      <xs:enumeration value="uint64_t *"/>
-      <xs:enumeration value="int8_t *"/>
-      <xs:enumeration value="int16_t *"/>
-      <xs:enumeration value="int32_t *"/>
-      <xs:enumeration value="int64_t *"/>
+      <xs:enumeration value="float"/>
+      <xs:enumeration value="double"/>
     </xs:restriction>
   </xs:simpleType>
   <!-- nvicPrioBitsType specifies the integer value range for the number of bits used in NVIC to encode priority levels -->
@@ -447,6 +442,8 @@
         <!-- bit field described by [<msb>:<lsb>] -->
         <xs:element name="bitRange" type="bitRangeType"/>
       </xs:choice>
+      <!-- data type to interpret the corresponding bitfield -->
+      <xs:element name="dataType" type="dataTypeType" minOccurs="0" maxOccurs="1"/>
       <!-- access describes the predefined permissions for the field. -->
       <xs:element name="access" type="accessType" minOccurs="0"/>
       <!-- predefined description of write side effects -->

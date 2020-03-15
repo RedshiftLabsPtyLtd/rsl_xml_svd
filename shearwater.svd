@@ -4,7 +4,7 @@
 
 
 <!--
-    Modified by RedShift Labs
+  Modified by Redshift Labs Pty Ltd
 
   Copyright (C) 2012-2014 ARM Limited. All rights reserved.
 
@@ -40,7 +40,7 @@
   <version>0.3</version>                                          <!-- version of this description, adding CMSIS-SVD 1.1 tags -->
   <description>Shearwater Board Peripheral Description</description>
   <licenseText>                                                   <!-- this license text will appear in header file. \n force line breaks -->
-      Redshift Labs modified this file\n
+    Redshift Labs Pty Ltd modified this file\n
 
     ARM Limited (ARM) is supplying this software for use with Cortex-M\n
     processor based microcontroller, but can be equally used for other\n
@@ -97,6 +97,7 @@
               <name>BAUD_RATE</name>
               <description>Sets the baud rate of the boards main serial port:</description>
               <bitRange>[31:28]</bitRange>
+              <dataType>bitField</dataType>
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
@@ -180,6 +181,7 @@
               <name>RAW_ACCEL_1_RATE</name>
               <description>Specifies the desired raw accelerometer 1 data broadcast rate in Hz. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[31:24]</bitRange>
+              <dataType>int16_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -188,6 +190,7 @@
               <name>RAW_GYRO_1_RATE</name>
               <description>Specifies the desired raw gyro 1 data broadcast rate in Hz. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz</description>
               <bitRange>[23:16]</bitRange>
+              <dataType>int16_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -196,6 +199,7 @@
               <name>RAW_GYRO_2_RATE</name>
               <description>Specifies the desired raw gyro 2 data broadcast rate in Hz. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[15:8]</bitRange>
+              <dataType>int16_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -204,6 +208,7 @@
               <name>RAW_MAG_1_RATE</name>
               <description>Specifies the desired raw magnetometer 1 data broadcast rate in Hz. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[7:0]</bitRange>
+              <dataType>int16_t</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -225,6 +230,7 @@
               <name>TEMP_RATE</name>
               <description>Specifies the desired broadcast rate for temperature data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[31:24]</bitRange>
+              <dataType>int16_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -233,6 +239,7 @@
               <name>RAW_MAG_2_RATE</name>
               <description>Specifies the desired raw magnetometer 2 data broadcast rate in Hz. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[23:16]</bitRange>
+              <dataType>int16_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -241,6 +248,7 @@
               <name>ALL_RAW_RATE</name>
               <description>Specifies the desired broadcast rate for all raw sensor data. If set, this overrides the broadcast rate setting for individual raw data broadcast rates. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[7:0]</bitRange>
+              <dataType>int16_t</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -263,6 +271,7 @@
               <name>PROC_ACCEL_1_RATE</name>
               <description>Specifies the desired broadcast rate for processed accelerometer 1 data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[31:24]</bitRange>
+              <dataType>int16_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -271,6 +280,7 @@
               <name>PROC_GYRO_1_RATE</name>
               <description>Specifies the desired broadcast rate for processed rate gyro 1 data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[23:16]</bitRange>
+              <dataType>int16_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -279,6 +289,7 @@
               <name>PROC_GYRO_2_RATE</name>
               <description>Specifies the desired broadcast rate for processed processed rate gyro 2 data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[15:8]</bitRange>
+              <dataType>int16_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -287,6 +298,7 @@
               <name>PROC_MAG_1_RATE</name>
               <description>Specifies the desired broadcast rate for processed magnetometer 1 data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[7:0]</bitRange>
+              <dataType>int16_t</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -309,6 +321,7 @@
               <name>PROC_MAG_2_RATE</name>
               <description>Specifies the desired broadcast rate for processed magnetometer 2 data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[31:24]</bitRange>
+              <dataType>int16_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -317,6 +330,7 @@
               <name>ALL_PROC_RATE</name>
               <description>Specifies the desired broadcast rate for raw all processed sensor data. If set, this overrides the broadcast rate setting for individual processed data broadcast rates. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[7:0]</bitRange>
+              <dataType>int16_t</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -340,6 +354,7 @@
               <name>QUAT_RATE</name>
               <description>Specifies the desired broadcast rate for quaternion data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[31:24]</bitRange>
+              <dataType>int16_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -348,6 +363,7 @@
               <name>EULER_RATE</name>
               <description>Specifies the desired broadcast rate for Euler Angle data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[23:16]</bitRange>
+              <dataType>int16_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -356,6 +372,7 @@
               <name>POSITION_RATE</name>
               <description>Specifies the desired broadcast rate position. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[15:8]</bitRange>
+              <dataType>int16_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -364,6 +381,7 @@
               <name>VELOCITY_RATE</name>
               <description>Specifies the desired broadcast rate for velocity. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[7:0]</bitRange>
+              <dataType>int16_t</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -385,6 +403,7 @@
               <name>POSE_RATE</name>
               <description>Specifies the desired broadcast rate for pose (Euler Angle and position) data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[31:24]</bitRange>
+              <dataType>int16_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -393,6 +412,7 @@
               <name>HEALTH_RATE</name>
               <description>Specifies the desired broadcast rate for the sensor health packet.</description>
               <bitRange>[19:16]</bitRange>
+              <dataType>bitField</dataType>
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
@@ -438,6 +458,7 @@
               <name>GYRO_BIAS_1_RATE</name>
               <description>Specifies the desired broadcast rate for gyro 1 bias estimates. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[15:8]</bitRange>
+              <dataType>int16_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -446,6 +467,7 @@
               <name>GYRO_BIAS_2_RATE</name>
               <description>Specifies the desired broadcast rate for gyro 2 bias estimates. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[7:0]</bitRange>
+              <dataType>int16_t</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -467,6 +489,7 @@
               <name>HEALTH_RATE</name>
               <description>Specifies the desired broadcast rate for Redshift Labs NMEA-style health packet.</description>
               <bitRange>[31:28]</bitRange>
+              <dataType>bitField</dataType>
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
@@ -557,6 +580,7 @@
               <name>POSE_RATE</name>
               <description>Specifies the desired broadcast rate for Redshift Labs NMEA-style pose (Euler Angle/position) packet.</description>
               <bitRange>[27:24]</bitRange>
+              <dataType>bitField</dataType>
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
@@ -647,6 +671,7 @@
               <name>ATTITUDE_RATE</name>
               <description>Specifies the desired broadcast rate for Redshift Labs NMEA-style attitude packet.</description>
               <bitRange>[23:20]</bitRange>
+              <dataType>bitField</dataType>
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
@@ -737,6 +762,7 @@
               <name>SENSOR_RATE</name>
               <description>Specifies the desired broadcast rate for Redshift Labs NMEA-style sensor data packet.</description>
               <bitRange>[19:16]</bitRange>
+              <dataType>bitField</dataType>
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
@@ -827,6 +853,7 @@
               <name>RATES_RATE</name>
               <description>Specifies the desired broadcast rate for Redshift Labs NMEA-style rate data packet.</description>
               <bitRange>[15:12]</bitRange>
+              <dataType>bitField</dataType>
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
@@ -917,6 +944,7 @@
               <name>GPS_POSE_RATE</name>
               <description>Specifies the desired broadcast rate for Redshift Labs NMEA-style GPS pose packet.</description>
               <bitRange>[11:8]</bitRange>
+              <dataType>bitField</dataType>
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
@@ -1007,6 +1035,7 @@
               <name>QUAT_RATE</name>
               <description>Specifies the desired broadcast rate for Redshift Labs NMEA-style quaternion packet.</description>
               <bitRange>[7:4]</bitRange>
+              <dataType>bitField</dataType>
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
@@ -1111,6 +1140,7 @@
               <name>PPS</name>
               <description>If set, this bit causes the TX2 pin on the IO Expansion header to be used as the PPS input from an external GPS module. PPS pulses will then be used to synchronize the system clock to UTC time of day.</description>
               <bitRange>[8:8]</bitRange>
+              <dataType>bitField</dataType>
               <access>read-write</access>
             </field>
 
@@ -1119,6 +1149,7 @@
               <name>ZG</name>
               <description>If set, this bit causes the devicee to attempt to measure the rate gyro bias on startup. The sensor must be stationary on startup for this feature to work properly.</description>
               <bitRange>[3:3]</bitRange>
+              <dataType>bitField</dataType>
               <access>read-write</access>
             </field>
 
@@ -1127,6 +1158,7 @@
               <name>Q</name>
               <description>If this bit is set, the sensor will run in quaternion mode instead of Euler Angle mode.</description>
               <bitRange>[2:2]</bitRange>
+              <dataType>bitField</dataType>
               <access>read-write</access>
             </field>
 
@@ -1135,6 +1167,7 @@
               <name>MAG1</name>
               <description>If set, the magnetometer 1 will be used in state updates.</description>
               <bitRange>[1:1]</bitRange>
+              <dataType>bitField</dataType>
               <access>read-write</access>
             </field>
 
@@ -1143,6 +1176,7 @@
               <name>MAG2</name>
               <description>If set, the magnetometer 2 will be used in state updates.</description>
               <bitRange>[0:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1164,6 +1198,7 @@
               <name>MEAS_GYRO1</name>
               <description>Specifies the desired measurement range for the gyro 1 measurements.</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
@@ -1207,6 +1242,7 @@
               <name>GYRO_1_TRIM_X</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1228,6 +1264,7 @@
               <name>GYRO_1_TRIM_Y</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1249,6 +1286,7 @@
               <name>GYRO_1_TRIM_Z</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1271,6 +1309,7 @@
               <name>MEAS_GYRO2</name>
               <description>Specifies the desired measurement range for the gyro 2 measurements.</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
@@ -1315,6 +1354,7 @@
               <name>GYRO_2_TRIM_X</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1336,6 +1376,7 @@
               <name>GYRO_2_TRIM_Y</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1357,6 +1398,7 @@
               <name>GYRO_2_TRIM_Z</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1378,6 +1420,7 @@
               <name>MAG_1_CAL1_1</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1399,6 +1442,7 @@
               <name>MAG_1_CAL1_2</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1420,6 +1464,7 @@
               <name>MAG_1_CAL1_3</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1441,6 +1486,7 @@
               <name>MAG_1_CAL2_1</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1462,6 +1508,7 @@
               <name>MAG_1_CAL2_2</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1483,6 +1530,7 @@
               <name>MAG_1_CAL2_3</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1504,6 +1552,7 @@
               <name>MAG_1_CAL3_1</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1525,6 +1574,7 @@
               <name>MAG_1_CAL3_2</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1546,6 +1596,7 @@
               <name>MAG_1_CAL3_3</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1567,6 +1618,7 @@
               <name>MAG_1_BIAS_X</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1588,6 +1640,7 @@
               <name>MAG_1_BIAS_Y</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1609,6 +1662,7 @@
               <name>MAG_1_BIAS_Z</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1631,6 +1685,7 @@
               <name>MAG_2_CAL1_1</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1652,6 +1707,7 @@
               <name>MAG_2_CAL1_2</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1673,6 +1729,7 @@
               <name>MAG_2_CAL1_3</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1694,6 +1751,7 @@
               <name>MAG_2_CAL2_1</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1715,6 +1773,7 @@
               <name>MAG_2_CAL2_2</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1736,6 +1795,7 @@
               <name>MAG_2_CAL2_3</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1757,6 +1817,7 @@
               <name>MAG_2_CAL3_1</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1778,6 +1839,7 @@
               <name>MAG_2_CAL3_2</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1799,6 +1861,7 @@
               <name>MAG_2_CAL3_3</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1820,6 +1883,7 @@
               <name>MAG_2_BIAS_X</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1841,6 +1905,7 @@
               <name>MAG_2_BIAS_Y</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1862,6 +1927,7 @@
               <name>MAG_2_BIAS_Z</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1883,6 +1949,7 @@
               <name>MEAS_ACC1</name>
               <description>Specifies the desired measurement range for the accelerometer 1 measurements.</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
@@ -1927,6 +1994,7 @@
               <name>ACCEL_1_CAL1_1</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1948,6 +2016,7 @@
               <name>ACCEL_1_CAL1_2</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1969,6 +2038,7 @@
               <name>ACCEL_1_CAL1_3</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -1990,6 +2060,7 @@
               <name>ACCEL_1_CAL2_1</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -2011,6 +2082,7 @@
               <name>ACCEL_1_CAL2_2</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -2032,6 +2104,7 @@
               <name>ACCEL_1_CAL2_3</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -2053,6 +2126,7 @@
               <name>ACCEL_1_CAL3_1</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -2074,6 +2148,7 @@
               <name>ACCEL_1_CAL3_2</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -2095,6 +2170,7 @@
               <name>ACCEL_1_CAL3_3</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -2116,6 +2192,7 @@
               <name>ACCEL_1_BIAS_X</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -2137,6 +2214,7 @@
               <name>ACCEL_1_BIAS_Y</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -2158,6 +2236,7 @@
               <name>ACCEL_1_BIAS_Z</name>
               <description>32-bit IEEE Floating Point Value</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-write</access>
             </field>
           </fields>
