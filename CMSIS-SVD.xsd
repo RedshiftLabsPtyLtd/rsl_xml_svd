@@ -135,6 +135,7 @@
       <xs:enumeration value="int64_t"/>
       <xs:enumeration value="float"/>
       <xs:enumeration value="double"/>
+      <xs:enumeration value="string"/>
     </xs:restriction>
   </xs:simpleType>
   <!-- nvicPrioBitsType specifies the integer value range for the number of bits used in NVIC to encode priority levels -->

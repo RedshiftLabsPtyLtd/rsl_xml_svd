@@ -3663,6 +3663,7 @@
               <name>GYRO_1_BIAS_X</name>
               <description>Gyro 1 bias X (32-bit IEEE Floating Point Value)</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-only</access>
             </field>
           </fields>
@@ -3684,6 +3685,7 @@
               <name>GYRO_1_BIAS_Y</name>
               <description>Gyro 1 bias Y (32-bit IEEE Floating Point Value)</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-only</access>
             </field>
           </fields>
@@ -3705,6 +3707,7 @@
               <name>GYRO_1_BIAS_Z</name>
               <description>Gyro 1 bias Z (32-bit IEEE Floating Point Value)</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-only</access>
             </field>
           </fields>
@@ -3726,6 +3729,7 @@
               <name>GYRO_2_BIAS_X</name>
               <description>Gyro 2 bias X (32-bit IEEE Floating Point Value)</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-only</access>
             </field>
           </fields>
@@ -3747,6 +3751,7 @@
               <name>GYRO_2_BIAS_Y</name>
               <description>Gyro 2 bias Y (32-bit IEEE Floating Point Value)</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-only</access>
             </field>
           </fields>
@@ -3768,6 +3773,7 @@
               <name>GYRO_2_BIAS_Z</name>
               <description>Gyro 2 bias Z (32-bit IEEE Floating Point Value)</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-only</access>
             </field>
           </fields>
@@ -3790,6 +3796,7 @@
               <name>FW_BUILD_ID</name>
               <description>Firmware Build ID string</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>string</dataType>
               <access>read-only</access>
             </field>
           </fields>
@@ -3811,6 +3818,7 @@
               <name>VERSION_MAJOR</name>
               <description>8-bit unsigned integer major version number</description>
               <bitRange>[31:24]</bitRange>
+              <dataType>uint8_t</dataType>
               <access>read-only</access>
             </field>
 
@@ -3819,6 +3827,7 @@
               <name>VERSION_MINOR</name>
               <description>8-bit unsigned integer minor version number</description>
               <bitRange>[23:16]</bitRange>
+              <dataType>uint8_t</dataType>
               <access>read-only</access>
             </field>
 
@@ -3827,6 +3836,7 @@
               <name>BUILD_ID</name>
               <description>16-bit unsigned integer build ID number</description>
               <bitRange>[15:0]</bitRange>
+              <dataType>uint16_t</dataType>
               <access>read-only</access>
             </field>
           </fields>
@@ -3848,6 +3858,7 @@
               <name>FLASH_COMMIT_BIT</name>
               <description>Flash commit bit</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>write-only</access>
             </field>
           </fields>
@@ -3869,6 +3880,7 @@
               <name>RESET_TO_FACTORY_BIT</name>
               <description>Reset to factory bit</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>write-only</access>
             </field>
           </fields>
@@ -3890,6 +3902,7 @@
               <name>ZERO_GYROS_BIT</name>
               <description>Zero gyros bit</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>write-only</access>
             </field>
           </fields>
@@ -3911,6 +3924,7 @@
               <name>SET_HOME_POSITION_BIT</name>
               <description>Set home position bit</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>write-only</access>
             </field>
           </fields>
@@ -3932,6 +3946,7 @@
               <name>SET_MAG_REFERENCE_BIT</name>
               <description>Set magnetometer reference bit</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>write-only</access>
             </field>
           </fields>
@@ -3953,6 +3968,7 @@
               <name>CALIBRATE_ACCELEROMETERS_BIT</name>
               <description>Calibrate accelerometers bit</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>write-only</access>
             </field>
           </fields>
@@ -3974,6 +3990,7 @@
               <name>RESET_FUSION_BIT</name>
               <description>Reset fusion bit</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>write-only</access>
             </field>
           </fields>
@@ -3995,6 +4012,7 @@
               <name>ENABLE_ZUPT_BIT</name>
               <description>Enable zero velocity update bit</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>write-only</access>
             </field>
           </fields>
@@ -4016,6 +4034,7 @@
               <name>EULER_MODE_BIT</name>
               <description>Fusion Euler mode bit</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>write-only</access>
             </field>
           </fields>
@@ -4037,6 +4056,7 @@
               <name>QUATERNION_MODE_BIT</name>
               <description>Fusion quaternion mode bit</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>write-only</access>
             </field>
           </fields>
@@ -4058,6 +4078,7 @@
               <name>ENABLE_RT_CALIBRATION_BIT</name>
               <description>RT calibration bit</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>write-only</access>
             </field>
           </fields>
@@ -4079,6 +4100,7 @@
               <name>EN_MAG_ANOMALY_DETECTION_BIT</name>
               <description>Magnetic field anomaly detection bit</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>write-only</access>
             </field>
           </fields>
@@ -4100,6 +4122,7 @@
               <name>RUN_SELF_TESTS_BIT</name>
               <description>Run self tests bit</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>write-only</access>
             </field>
           </fields>
@@ -4121,6 +4144,7 @@
               <name>ENABLE_EXTERNAL_EVENT_BIT</name>
               <description>Enable external event bit</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>write-only</access>
             </field>
           </fields>
@@ -4142,6 +4166,7 @@
               <name>ENABLE_GNNS_FUSION_BIT</name>
               <description>Enable GNSS fusion bit</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>write-only</access>
             </field>
           </fields>
@@ -4163,6 +4188,7 @@
               <name>ENABLE_USR_EULER_OUTPUT_BIT</name>
               <description>Enable user Euler output bit</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>write-only</access>
             </field>
           </fields>
@@ -4184,6 +4210,7 @@
               <name>ENABLE_DEAD_RECKONING_BIT</name>
               <description>Enable dead reckoning bit</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>write-only</access>
             </field>
           </fields>
@@ -4205,6 +4232,7 @@
               <name>ENABLE_HEAVE_SWAY_SURGE_BIT</name>
               <description>Enable heave sway surge bit</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>write-only</access>
             </field>
           </fields>
@@ -4226,6 +4254,7 @@
               <name>ENABLE_UKF_BIT</name>
               <description>Enable UKF bit</description>
               <bitRange>[1:0]</bitRange>
+              <dataType>bitField</dataType>
               <access>write-only</access>
             </field>
           </fields>
@@ -4247,6 +4276,7 @@
               <name>BOARD_UNIQUE_ID_1_BTIS</name>
               <description>Board unique ID bits</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>uint32_t</dataType>
               <access>read-only</access>
             </field>
           </fields>
@@ -4268,6 +4298,7 @@
               <name>BOARD_UNIQUE_ID_2_BTIS</name>
               <description>Board unique ID bits</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>uint32_t</dataType>
               <access>read-only</access>
             </field>
           </fields>
@@ -4289,6 +4320,7 @@
               <name>PROTOCOL_VERSION_STR</name>
               <description>Protocol version string</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>string</dataType>
               <access>read-only</access>
             </field>
           </fields>
