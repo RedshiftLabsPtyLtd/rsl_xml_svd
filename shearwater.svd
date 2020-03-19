@@ -3663,6 +3663,7 @@
               <name>GYRO_1_BIAS_X</name>
               <description>Gyro 1 bias X (32-bit IEEE Floating Point Value)</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-only</access>
             </field>
           </fields>
@@ -3684,6 +3685,7 @@
               <name>GYRO_1_BIAS_Y</name>
               <description>Gyro 1 bias Y (32-bit IEEE Floating Point Value)</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-only</access>
             </field>
           </fields>
@@ -3705,6 +3707,7 @@
               <name>GYRO_1_BIAS_Z</name>
               <description>Gyro 1 bias Z (32-bit IEEE Floating Point Value)</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-only</access>
             </field>
           </fields>
@@ -3726,6 +3729,7 @@
               <name>GYRO_2_BIAS_X</name>
               <description>Gyro 2 bias X (32-bit IEEE Floating Point Value)</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-only</access>
             </field>
           </fields>
@@ -3747,6 +3751,7 @@
               <name>GYRO_2_BIAS_Y</name>
               <description>Gyro 2 bias Y (32-bit IEEE Floating Point Value)</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-only</access>
             </field>
           </fields>
@@ -3768,6 +3773,7 @@
               <name>GYRO_2_BIAS_Z</name>
               <description>Gyro 2 bias Z (32-bit IEEE Floating Point Value)</description>
               <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
               <access>read-only</access>
             </field>
           </fields>
