@@ -9,6 +9,7 @@ def rsl_svd_parser():
     return RslSvdParser()
 
 
+@pytest.mark.svd
 def test_rls_svd_parser_init(rsl_svd_parser):
     assert os.path.exists(rsl_svd_parser.svd_xml_file), "NO SVD file found!"
 
@@ -23,6 +24,7 @@ def test_rls_svd_parser_init(rsl_svd_parser):
                                                 "Total registers not equal to `cregs`, `dregs`, `commands`"
 
 
+@pytest.mark.svd
 def test_svd_registers(rsl_svd_parser):
     xml_regs = rsl_svd_parser.svd_regs
     for reg in xml_regs:
@@ -34,12 +36,14 @@ def test_svd_registers(rsl_svd_parser):
         assert len(register.fields) > 0, f"NO Fields in register {register.name}"
 
 
+@pytest.mark.svd
 def test_get_cregs_objects(rsl_svd_parser):
     cregs = rsl_svd_parser.get_cregs_objects()
     assert len(cregs) > 0, "No command registers found!"
     assert cregs[0].name == 'CREG_COM_SETTINGS', "First register name is incorrect!"
 
 
+@pytest.mark.svd
 def test_find_register_by(rsl_svd_parser):
     reg = rsl_svd_parser.find_register_by(name='CREG_COM_SETTINGS')
     assert reg is not None, "NO CREG_COM_SETTINGS register found!"
