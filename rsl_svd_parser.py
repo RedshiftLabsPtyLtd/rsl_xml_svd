@@ -35,6 +35,13 @@ class Field:
                f"bit_range={self.bit_range}, data_type={self.data_type}, "\
                f"access={self.access}, enumerated_values={self.enumerated_values})"
 
+    def find_enum_entry_by(self, **kw) -> EnumeratedValue:
+        (prop, value), = kw.items()
+        if len(kw) != 1 or prop not in ['name', 'value']:
+            raise NotImplementedError(f"One pair is supported, with key either `name` or `value`, but given: {kw}!")
+        found_enum = next(filter(lambda x: getattr(x, prop) == value, self.enumerated_values), None)
+        return found_enum
+
 
 @dataclass
 class Register:
@@ -47,6 +54,10 @@ class Register:
 
     def __repr__(self):
         return f"Register(name={self.name}, address={self.address}, access={self.access}, fields={self.fields})"
+
+    def find_field_by(self, name: str) -> Field:
+        found_field = next(filter(lambda x: x.name == name, self.fields), None)
+        return found_field
 
 
 class RslSvdParser:
@@ -91,11 +102,10 @@ class RslSvdParser:
         return tuple(self.extract_register_fields(el) for el in self.svd_commands)
 
     def find_register_by(self, **kw):
-        regs = self.get_cregs_objects() + self.get_dreg_objects() + self.get_commands_objects()
-        if len(kw) > 1:
-            raise NotImplementedError("Only one property is currently implemented!")
         (prop, value), = kw.items()
-        found_register = next(filter(lambda x: getattr(x, prop) == value, regs), None)
+        if len(kw) > 1 or prop not in ['name', 'address']:
+            raise NotImplementedError(f"One pair is supported, with key either `name` or `address`, but given: {kw}!")
+        found_register = next(filter(lambda x: getattr(x, prop) == value, self.regs), None)
         return found_register
 
     @staticmethod
