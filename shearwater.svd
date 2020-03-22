@@ -4273,7 +4273,7 @@
           <fields>
             <!-- BOARD_UNIQUE_ID_1 -->
             <field>
-              <name>BOARD_UNIQUE_ID_1_BTIS</name>
+              <name>BOARD_UNIQUE_ID_1_BITS</name>
               <description>Board unique ID bits</description>
               <bitRange>[31:0]</bitRange>
               <dataType>uint32_t</dataType>
@@ -4295,7 +4295,7 @@
           <fields>
             <!-- BOARD_UNIQUE_ID_2 -->
             <field>
-              <name>BOARD_UNIQUE_ID_2_BTIS</name>
+              <name>BOARD_UNIQUE_ID_2_BITS</name>
               <description>Board unique ID bits</description>
               <bitRange>[31:0]</bitRange>
               <dataType>uint32_t</dataType>
