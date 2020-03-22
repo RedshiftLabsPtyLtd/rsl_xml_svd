@@ -181,7 +181,7 @@
               <name>RAW_ACCEL_1_RATE</name>
               <description>Specifies the desired raw accelerometer 1 data broadcast rate in Hz. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[31:24]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint8_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -190,7 +190,7 @@
               <name>RAW_GYRO_1_RATE</name>
               <description>Specifies the desired raw gyro 1 data broadcast rate in Hz. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz</description>
               <bitRange>[23:16]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint8_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -199,7 +199,7 @@
               <name>RAW_GYRO_2_RATE</name>
               <description>Specifies the desired raw gyro 2 data broadcast rate in Hz. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[15:8]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint8_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -208,7 +208,7 @@
               <name>RAW_MAG_1_RATE</name>
               <description>Specifies the desired raw magnetometer 1 data broadcast rate in Hz. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[7:0]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint8_t</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -230,7 +230,7 @@
               <name>TEMP_RATE</name>
               <description>Specifies the desired broadcast rate for temperature data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[31:24]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint8_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -239,7 +239,7 @@
               <name>RAW_MAG_2_RATE</name>
               <description>Specifies the desired raw magnetometer 2 data broadcast rate in Hz. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[23:16]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint8_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -248,7 +248,7 @@
               <name>ALL_RAW_RATE</name>
               <description>Specifies the desired broadcast rate for all raw sensor data. If set, this overrides the broadcast rate setting for individual raw data broadcast rates. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[7:0]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint8_t</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -271,7 +271,7 @@
               <name>PROC_ACCEL_1_RATE</name>
               <description>Specifies the desired broadcast rate for processed accelerometer 1 data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[31:24]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint8_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -280,7 +280,7 @@
               <name>PROC_GYRO_1_RATE</name>
               <description>Specifies the desired broadcast rate for processed rate gyro 1 data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[23:16]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint8_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -289,7 +289,7 @@
               <name>PROC_GYRO_2_RATE</name>
               <description>Specifies the desired broadcast rate for processed processed rate gyro 2 data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[15:8]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint8_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -298,7 +298,7 @@
               <name>PROC_MAG_1_RATE</name>
               <description>Specifies the desired broadcast rate for processed magnetometer 1 data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[7:0]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint8_t</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -321,7 +321,7 @@
               <name>PROC_MAG_2_RATE</name>
               <description>Specifies the desired broadcast rate for processed magnetometer 2 data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[31:24]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint8_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -330,7 +330,7 @@
               <name>ALL_PROC_RATE</name>
               <description>Specifies the desired broadcast rate for raw all processed sensor data. If set, this overrides the broadcast rate setting for individual processed data broadcast rates. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[7:0]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint8_t</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -354,7 +354,7 @@
               <name>QUAT_RATE</name>
               <description>Specifies the desired broadcast rate for quaternion data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[31:24]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint8_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -363,7 +363,7 @@
               <name>EULER_RATE</name>
               <description>Specifies the desired broadcast rate for Euler Angle data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[23:16]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint8_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -372,7 +372,7 @@
               <name>POSITION_RATE</name>
               <description>Specifies the desired broadcast rate position. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[15:8]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint8_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -381,7 +381,7 @@
               <name>VELOCITY_RATE</name>
               <description>Specifies the desired broadcast rate for velocity. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[7:0]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint8_t</dataType>
               <access>read-write</access>
             </field>
           </fields>
@@ -403,7 +403,7 @@
               <name>POSE_RATE</name>
               <description>Specifies the desired broadcast rate for pose (Euler Angle and position) data. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[31:24]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint8_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -458,7 +458,7 @@
               <name>GYRO_BIAS_1_RATE</name>
               <description>Specifies the desired broadcast rate for gyro 1 bias estimates. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[15:8]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint8_t</dataType>
               <access>read-write</access>
             </field>
 
@@ -467,7 +467,7 @@
               <name>GYRO_BIAS_2_RATE</name>
               <description>Specifies the desired broadcast rate for gyro 2 bias estimates. The data is stored as an unsigned 8-bit integer, yielding a maximum rate of 255 Hz.</description>
               <bitRange>[7:0]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint8_t</dataType>
               <access>read-write</access>
             </field>
           </fields>
