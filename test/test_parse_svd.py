@@ -72,3 +72,9 @@ def test_find_enum_entry_by(rsl_svd_parser: RslSvdParser):
     assert enum.name == '57600', f"Expecting name: 57600, but got {enum.name}"
     assert len(enum.description) > 0, "Empty enum description!"
 
+
+@pytest.mark.svd
+def test_regs(rsl_svd_parser: RslSvdParser):
+    regs = rsl_svd_parser.regs
+    assert id(regs) == id(rsl_svd_parser.regs), f"different IDs, not the same objects"
+    print(regs)
