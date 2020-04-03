@@ -7,7 +7,7 @@ import os
 import os.path
 
 from dataclasses import dataclass
-from typing import Any, List, Tuple
+from typing import Any, List, Tuple, Union
 from xml.etree import ElementTree as ET
 
 
@@ -42,6 +42,23 @@ class Field:
         found_enum = next(filter(lambda x: getattr(x, prop) == value, self.enumerated_values), None)
         return found_enum
 
+    def get_c_type(self) -> str:
+        c_type_mapping = {
+            'bitField' : 'uint32_t',
+            'uint8_t'  : 'uint8_t',
+            'int8_t'   : 'int8_t',
+            'uint16_t' : 'uint16_t',
+            'int16_t'  : 'int16_t',
+            'uint32_t' : 'uint32_t',
+            'int32_t'  : 'int32_t',
+            'uint64_t' : 'uint64_t',
+            'int64_t'  : 'int64_t',
+            'float'    : 'float',
+            'double'   : 'double',
+            'string'   : 'char[4]'
+        }
+        return c_type_mapping[self.data_type]
+
 
 @dataclass
 class Register:
@@ -55,9 +72,31 @@ class Register:
     def __repr__(self):
         return f"Register(name={self.name}, address={self.address}, access={self.access}, fields={self.fields})"
 
-    def find_field_by(self, name: str) -> Field:
-        found_field = next(filter(lambda x: x.name == name, self.fields), None)
-        return found_field
+    def find_field_by(self, name: str = '', bit_position: int = -1) -> Union[Field, None]:
+        if name != '':
+            return next(filter(lambda x: x.name == name, self.fields), None)
+        elif bit_position != -1:
+            return next(
+                filter(lambda x: bit_position in set(range(x.bit_range[1], x.bit_range[0] + 1)), self.fields), None)
+        else:
+            return None
+
+    def get_fields_and_gaps(self) -> List:
+        register_bits = range(0, 32)
+        field_in_bit_position = []
+        for bit in register_bits:
+            found_field = self.find_field_by(bit_position=bit)
+            if found_field is None:
+                field_in_bit_position.append(Field(name=None, description='', bit_range=(0,), data_type='', access=''))
+            else:
+                field_in_bit_position.append(found_field)
+        fields_and_gaps = []
+        for el in field_in_bit_position:
+            if len(fields_and_gaps) == 0 or (el.name not in fields_and_gaps[-1].keys()):
+                fields_and_gaps.append({el.name: 1})
+            elif el.name in fields_and_gaps[-1].keys():
+                fields_and_gaps[-1][el.name] += 1
+        return fields_and_gaps
 
 
 class RslSvdParser:

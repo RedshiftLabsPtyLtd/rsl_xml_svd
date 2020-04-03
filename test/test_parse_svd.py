@@ -77,4 +77,50 @@ def test_find_enum_entry_by(rsl_svd_parser: RslSvdParser):
 def test_regs(rsl_svd_parser: RslSvdParser):
     regs = rsl_svd_parser.regs
     assert id(regs) == id(rsl_svd_parser.regs), f"different IDs, not the same objects"
-    print(regs)
+
+
+@pytest.mark.svd
+def test_find_by_field_position(rsl_svd_parser: RslSvdParser):
+    cregs_6: Register = rsl_svd_parser.find_register_by(name='CREG_COM_RATES6')
+    assert type(cregs_6) == Register, "Expect to find `Register` type from the register map"
+    assert cregs_6.name == 'CREG_COM_RATES6', f"Expect to find `CREG_COM_RATES6`, got {cregs_6.name}"
+    found_field = cregs_6.find_field_by(bit_position=0)
+    assert found_field.name == 'GYRO_BIAS_2_RATE', f"Expect `GYRO_BIAS_2_RATE`, got {found_field}"
+    found_field = cregs_6.find_field_by(bit_position=16)
+    assert found_field.name == 'HEALTH_RATE', f"Expect `HEALTH_RATE`, got {found_field}"
+    found_field = cregs_6.find_field_by(bit_position=23)
+    assert found_field is None, f"Expect `None` at this bitfield, got {found_field}"
+
+
+@pytest.mark.svd
+def test_get_fields_and_gaps(rsl_svd_parser: RslSvdParser):
+    creg_rates6: Register = rsl_svd_parser.find_register_by(name='CREG_COM_RATES6')
+    result = creg_rates6.get_fields_and_gaps()
+    expected_creg_rates6 = [{'GYRO_BIAS_2_RATE': 8}, {'GYRO_BIAS_1_RATE': 8}, {'HEALTH_RATE': 4}, {None: 4}, {'POSE_RATE': 8}]
+    assert result == expected_creg_rates6, f"Incorrect fields/gaps for {creg_rates6.name}, got: {result}"
+
+    creg_settings: Register = rsl_svd_parser.find_register_by(name='CREG_COM_SETTINGS')
+    result = creg_settings.get_fields_and_gaps()
+    expected_creg_settings = [{None: 28}, {'BAUD_RATE': 4}]
+    assert result == expected_creg_settings, f"Incorrect fields/gaps for {creg_settings.name}, got: {result}"
+
+    creg_rates4: Register = rsl_svd_parser.find_register_by(name='CREG_COM_RATES4')
+    result = creg_rates4.get_fields_and_gaps()
+    expected_creg_rates4 = [{'ALL_PROC_RATE': 8}, {None: 16}, {'PROC_MAG_2_RATE': 8}]
+    assert result == expected_creg_rates4, f"Incorrect fields/gaps for {creg_rates4.name}, got: {result}"
+
+    creg_rates5: Register = rsl_svd_parser.find_register_by(name='CREG_COM_RATES5')
+    result = creg_rates5.get_fields_and_gaps()
+    expected_creg_rates5 = [{'VELOCITY_RATE': 8}, {'POSITION_RATE': 8}, {'EULER_RATE': 8}, {'QUAT_RATE': 8}]
+    assert result == expected_creg_rates5, f"Incorrect fields/gaps for {creg_rates4.name}, got: {result}"
+
+    dreg_gyro_1_raw_xy: Register = rsl_svd_parser.find_register_by(name='DREG_GYRO_1_RAW_XY')
+    result = dreg_gyro_1_raw_xy.get_fields_and_gaps()
+    expected_dreg_gyro_1_raw_xy = [{'GYRO_1_RAW_Y': 16}, {'GYRO_1_RAW_X': 16}]
+    assert result == expected_dreg_gyro_1_raw_xy, f"Incorrect fields/gaps for {dreg_gyro_1_raw_xy.name}, got: {result}"
+
+    dreg_mag_1_raw_x: Register = rsl_svd_parser.find_register_by(name='DREG_MAG_1_RAW_X')
+    result = dreg_mag_1_raw_x.get_fields_and_gaps()
+    expected_dreg_mag_1_raw_x = [{'MAG_1_RAW_X': 32}]
+    assert result == expected_dreg_mag_1_raw_x, f"Incorrect fields/gaps for {dreg_mag_1_raw_x.name}, got: {result}"
+

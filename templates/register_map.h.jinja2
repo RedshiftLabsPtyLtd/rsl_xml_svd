@@ -38,9 +38,29 @@
         {% if field.enumerated_values is not none %}
 typedef enum {
             {%- for enum in field.enumerated_values %}
-    {{ register.name }}_{{ field.name }}_{{ enum.name }} = {{ enum.value }},  /* {{ enum.name }}: {{ enum.description }} */
+    {{ field.name }}_{{ enum.name }} = {{ enum.value }},  /* {{ enum.name }}: {{ enum.description }} */
             {%- endfor %}
 } {{ register.name }}_{{ field.name }}_Enum;
         {%- endif %}
     {%- endfor %}
+union {
+    uint32_t raw_reg;
+    struct {
+        {%- for el in register.get_fields_and_gaps() -%}
+            {%- for field_or_gap, bit_length in el.items() -%}
+                {%- if field_or_gap is not none -%}
+                    {%- set field = register.find_field_by(name=field_or_gap) -%}
+                    {%- set field_type = field.get_c_type() -%}
+                    {%- if field_type == 'float' %}
+        float {{ field_or_gap }};
+                    {%- else %}
+        {{ field_type }} {{ field_or_gap }}: {{ bit_length }};
+                    {%- endif -%}
+                {%- else %}
+        uint32_t: {{ bit_length }};
+                {%- endif -%}
+            {%- endfor -%}
+        {% endfor %}
+    } fields;
+} {{ register.name }};
 {% endfor %}
