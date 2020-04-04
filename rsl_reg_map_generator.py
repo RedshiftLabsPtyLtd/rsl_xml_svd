@@ -14,12 +14,12 @@ if __name__ == '__main__':
 
     template = Environment(loader=DictLoader(globals()))
     svd_parser = RslSvdParser()
-    cregs = svd_parser.cregs
+    regs = svd_parser.regs
 
     print(template.get_template('RSL_HEADER').render(
             {'version': 'v0.1',
              'date': today,
-             'cregs': cregs}
+             'regs': regs}
         )
     )
 
