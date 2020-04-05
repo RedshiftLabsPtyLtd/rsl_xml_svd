@@ -131,10 +131,7 @@
       <xs:enumeration value="int16_t"/>
       <xs:enumeration value="uint32_t"/>
       <xs:enumeration value="int32_t"/>
-      <xs:enumeration value="uint64_t"/>
-      <xs:enumeration value="int64_t"/>
       <xs:enumeration value="float"/>
-      <xs:enumeration value="double"/>
       <xs:enumeration value="string"/>
     </xs:restriction>
   </xs:simpleType>

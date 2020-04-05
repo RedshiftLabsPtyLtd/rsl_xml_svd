@@ -16,10 +16,12 @@ if __name__ == '__main__':
     svd_parser = RslSvdParser()
     regs = svd_parser.regs
 
-    print(template.get_template('RSL_HEADER').render(
-            {'version': 'v0.1',
-             'date': today,
-             'regs': regs}
+    with open('shearwater.h', 'w') as fd:
+        fd.write(
+            template.get_template('RSL_HEADER').render(
+                {'version': 'v0.1',
+                 'date': today,
+                 'regs': regs}
+            )
         )
-    )
 
