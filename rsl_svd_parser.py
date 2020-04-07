@@ -55,7 +55,7 @@ class Field:
             'int64_t'  : 'int64_t',
             'float'    : 'float',
             'double'   : 'double',
-            'string'   : 'char[4]'
+            'string'   : 'char'
         }
         return c_type_mapping[self.data_type]
 

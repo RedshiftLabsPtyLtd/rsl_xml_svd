@@ -484,9 +484,9 @@
           <resetMask>0xFFFFFFFF</resetMask>
 
           <fields>
-            <!-- HEALTH_RATE -->
+            <!-- NMEA_HEALTH_RATE -->
             <field>
-              <name>HEALTH_RATE</name>
+              <name>NMEA_HEALTH_RATE</name>
               <description>Specifies the desired broadcast rate for Redshift Labs NMEA-style health packet.</description>
               <bitRange>[31:28]</bitRange>
               <dataType>bitField</dataType>
@@ -575,9 +575,9 @@
               </enumeratedValues>
             </field>
 
-            <!-- POSE_RATE -->
+            <!-- NMEA_POSE_RATE -->
             <field>
-              <name>POSE_RATE</name>
+              <name>NMEA_POSE_RATE</name>
               <description>Specifies the desired broadcast rate for Redshift Labs NMEA-style pose (Euler Angle/position) packet.</description>
               <bitRange>[27:24]</bitRange>
               <dataType>bitField</dataType>
@@ -666,9 +666,9 @@
               </enumeratedValues>
             </field>
 
-            <!-- ATTITUDE_RATE -->
+            <!-- NMEA_ATTITUDE_RATE -->
             <field>
-              <name>ATTITUDE_RATE</name>
+              <name>NMEA_ATTITUDE_RATE</name>
               <description>Specifies the desired broadcast rate for Redshift Labs NMEA-style attitude packet.</description>
               <bitRange>[23:20]</bitRange>
               <dataType>bitField</dataType>
@@ -757,9 +757,9 @@
               </enumeratedValues>
             </field>
 
-            <!-- SENSOR_RATE -->
+            <!-- NMEA_SENSOR_RATE -->
             <field>
-              <name>SENSOR_RATE</name>
+              <name>NMEA_SENSOR_RATE</name>
               <description>Specifies the desired broadcast rate for Redshift Labs NMEA-style sensor data packet.</description>
               <bitRange>[19:16]</bitRange>
               <dataType>bitField</dataType>
@@ -848,9 +848,9 @@
               </enumeratedValues>
             </field>
 
-            <!-- RATES_RATE -->
+            <!-- NMEA_RATES_RATE -->
             <field>
-              <name>RATES_RATE</name>
+              <name>NMEA_RATES_RATE</name>
               <description>Specifies the desired broadcast rate for Redshift Labs NMEA-style rate data packet.</description>
               <bitRange>[15:12]</bitRange>
               <dataType>bitField</dataType>
@@ -939,9 +939,9 @@
               </enumeratedValues>
             </field>
 
-            <!-- GPS_POSE_RATE -->
+            <!-- NMEA_GPS_POSE_RATE -->
             <field>
-              <name>GPS_POSE_RATE</name>
+              <name>NMEA_GPS_POSE_RATE</name>
               <description>Specifies the desired broadcast rate for Redshift Labs NMEA-style GPS pose packet.</description>
               <bitRange>[11:8]</bitRange>
               <dataType>bitField</dataType>
@@ -1030,9 +1030,9 @@
               </enumeratedValues>
             </field>
 
-            <!-- QUAT_RATE -->
+            <!-- NMEA_QUAT_RATE -->
             <field>
-              <name>QUAT_RATE</name>
+              <name>NMEA_QUAT_RATE</name>
               <description>Specifies the desired broadcast rate for Redshift Labs NMEA-style quaternion packet.</description>
               <bitRange>[7:4]</bitRange>
               <dataType>bitField</dataType>

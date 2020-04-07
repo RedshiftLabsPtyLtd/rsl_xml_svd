@@ -43,7 +43,7 @@ typedef enum {
 } {{ register.name }}_{{ field.name }}_Enum;
         {%- endif %}
     {%- endfor %}
-union {
+union {{ register.name }} {
     uint32_t raw_reg;
     struct {
         {%- for el in register.get_fields_and_gaps() -%}
@@ -54,7 +54,7 @@ union {
                     {%- if field_type == 'float' %}
         float {{ field_or_gap }};
                     {% elif 'char' in field_type %}
-        {{ field_type }} {{ field_or_gap }};
+        {{ field_type }} {{ field_or_gap }}[4];
                     {%- else %}
         {{ field_type }} {{ field_or_gap }}: {{ bit_length }};
                     {%- endif -%}
@@ -64,5 +64,5 @@ union {
             {%- endfor -%}
         {% endfor %}
     } fields;
-} {{ register.name }};
+};
 {% endfor %}
