@@ -105,21 +105,25 @@ and proceed as described below.
 The `SVDConv` tool can be used as described below.
 
 Generate enums (replace `/path/to/` with paths relative to your PC):
-```shell script
+
+```sh
 /path/to/SVDConv /path/to/shearwater.svd -o /path/to/out/folder -b /path/to/log --generate=header --debug-headerfile --fields=enum 
 ```
 
 Generate macros:
-```shell script
+
+```sh
 /path/to/SVDConv /path/to/shearwater.svd -o /path/to/out/folder -b /path/to/log --generate=header --debug-headerfile --fields=macro 
 ```
 
 Generate structs:
-```shell script
+
+```sh
 /path/to/SVDConv /path/to/shearwater.svd -o /path/to/out/folder -b /path/to/log --generate=header --debug-headerfile --fields=struct 
 ```
 
 Generate ANSI-C type structs:
-```shell script
+
+```sh
 /path/to/SVDConv /path/to/shearwater.svd -o /path/to/out/folder -b /path/to/log --generate=header --debug-headerfile --fields=ansic 
 ```
