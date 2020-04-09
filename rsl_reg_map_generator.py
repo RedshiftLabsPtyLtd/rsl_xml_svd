@@ -43,3 +43,11 @@ if __name__ == '__main__':
                   'commands': svd_parser.commands}
     render_template_to_file(reg_addr_enum_template, reg_addr_enum_out, param_dict)
 
+    reg_addr_enum_template = os.path.abspath('templates/python_reg_acces.jinja2')
+    reg_addr_enum_out = 'shearwater_py_accessor.py'
+    param_dict = {'version': 'v0.1',
+                  'date': today,
+                  'cregs': svd_parser.cregs,
+                  'dregs': svd_parser.dregs,
+                  'commands': svd_parser.commands}
+    render_template_to_file(reg_addr_enum_template, reg_addr_enum_out, param_dict)

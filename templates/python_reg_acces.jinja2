@@ -1,0 +1,7 @@
+# Author: Dr. Konstantin Selyunin
+# Version: {{ version }}
+# Date: {{ date }}
+
+{%- for register in cregs %}
+print(f"{{ '{:<30s}'.format(register.name.lower()) }}: {shearwater.{{ register.name.lower() }}}")
+{%- endfor %}

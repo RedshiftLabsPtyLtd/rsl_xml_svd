@@ -1,4 +1,4 @@
-shearwater.h
+shearwater*.h
 __pycache__
 out*
 struct_ansi_c
