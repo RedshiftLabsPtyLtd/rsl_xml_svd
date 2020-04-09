@@ -27,14 +27,16 @@
  * Date: {{ date }}
 */
 
+#include <stdint.h>
+
 {% for register in regs %}
-#define {{ '{:<30s}'.format(register.name + '_ADDR') }} {{ '0x{:02X}'.format(register.address) }}
+{##define {{ '{:<30s}'.format(register.name + '_ADDR') }} {{ '0x{:02X}'.format(register.address) }}#}
 /*
 {{ register.description | wordwrap(78) }}
 */
     {%- for field in register.fields %}
-#define {{ register.name }}_{{ field.name }}_Pos ({{ field.bit_range[1] }}UL)
-#define {{ register.name }}_{{ field.name }}_Msk ({{ '0x{:X}'.format(2 ** (field.bit_range[0] - field.bit_range[1] + 1) - 1) }}UL)
+#define {{ register.name }}_{{ field.name }}_Pos ({{ field.bit_range[1] }}U)
+#define {{ register.name }}_{{ field.name }}_Msk ({{ '0x{:X}'.format(2 ** (field.bit_range[0] - field.bit_range[1] + 1) - 1) }}U)
         {% if field.enumerated_values is not none %}
 typedef enum {
             {%- for enum in field.enumerated_values %}
