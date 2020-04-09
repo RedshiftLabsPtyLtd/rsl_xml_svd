@@ -1142,6 +1142,18 @@
               <bitRange>[8:8]</bitRange>
               <dataType>bitField</dataType>
               <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>OFF</name>
+                  <description>TX2 not used as PPS input from GPS</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>ON</name>
+                  <description>TX2 used as PPS input from GPS</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
 
             <!-- ZG -->
@@ -1151,6 +1163,18 @@
               <bitRange>[3:3]</bitRange>
               <dataType>bitField</dataType>
               <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>OFF</name>
+                  <description>NOT measure rate gyro bias on startup</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>ON</name>
+                  <description>Measure rate gyro bias on startup</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
 
             <!-- Q -->
@@ -1160,6 +1184,18 @@
               <bitRange>[2:2]</bitRange>
               <dataType>bitField</dataType>
               <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>EULER_MODE</name>
+                  <description>The sensor will run in Euler Angle mode</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>QUATERNION_MODE</name>
+                  <description>The sensor will run in quaternion mode</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
 
             <!-- MAG1 -->
@@ -1169,6 +1205,18 @@
               <bitRange>[1:1]</bitRange>
               <dataType>bitField</dataType>
               <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>OFF</name>
+                  <description>NOT use magnetometer 1 in state update</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>ON</name>
+                  <description>Use magnetometer 1 in state update</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
 
             <!-- MAG2 -->
@@ -1178,6 +1226,18 @@
               <bitRange>[0:0]</bitRange>
               <dataType>bitField</dataType>
               <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>OFF</name>
+                  <description>NOT use magnetometer 2 in state update</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>ON</name>
+                  <description>Use magnetometer 2 in state update</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -2262,6 +2322,18 @@
               <bitRange>[8:8]</bitRange>
               <dataType>bitField</dataType>
               <access>read-only</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>OFF</name>
+                  <description>No overflow registered</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>ON</name>
+                  <description>Overflow registered, reduce broadcast rates</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
 
             <!-- ACC1_N -->
@@ -2271,6 +2343,18 @@
               <bitRange>[7:7]</bitRange>
               <dataType>bitField</dataType>
               <access>read-only</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>OFF</name>
+                  <description>No high acceleration / no high vibration detected</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>ON</name>
+                  <description>High acceleration / high vibration detected</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
 
             <!-- MAG1_N -->
@@ -2280,6 +2364,18 @@
               <bitRange>[6:6]</bitRange>
               <dataType>bitField</dataType>
               <access>read-only</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>MAG2_NORM_OK</name>
+                  <description>Magnetometer 1 norm is OK</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>MAG2_NORM_WARN</name>
+                  <description>Magnetometer 1 norm is not OK</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
 
             <!-- MAG2_N -->
@@ -2289,6 +2385,18 @@
               <bitRange>[5:5]</bitRange>
               <dataType>bitField</dataType>
               <access>read-only</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>MAG2_NORM_OK</name>
+                  <description>Magnetometer 2 norm is OK</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>MAG2_NORM_WARN</name>
+                  <description>Magnetometer 2 norm is not OK</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
 
             <!-- ACCEL1 -->
@@ -2298,6 +2406,18 @@
               <bitRange>[4:4]</bitRange>
               <dataType>bitField</dataType>
               <access>read-only</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>ACCEL1_STARTUP_OK</name>
+                  <description>Accelerometer 1 startup OK</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>ACCEL1_STARTUP_ERR</name>
+                  <description>Accelerometer 1 startup error</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
 
             <!-- GYRO1 -->
@@ -2307,6 +2427,18 @@
               <bitRange>[3:3]</bitRange>
               <dataType>bitField</dataType>
               <access>read-only</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>GYRO1_STARTUP_OK</name>
+                  <description>Gyro 1 startup OK</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>GYRO1_STARTUP_ERR</name>
+                  <description>Gyro 1 startup error</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
 
             <!-- GYRO2 -->
@@ -2316,6 +2448,18 @@
               <bitRange>[2:2]</bitRange>
               <dataType>bitField</dataType>
               <access>read-only</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>GYRO2_STARTUP_OK</name>
+                  <description>Gyro 2 startup OK</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>GYRO2_STARTUP_ERR</name>
+                  <description>Gyro 2 startup error</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
 
             <!-- MAG1 -->
@@ -2325,6 +2469,18 @@
               <bitRange>[1:1]</bitRange>
               <dataType>bitField</dataType>
               <access>read-only</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>MAG1_STARTUP_OK</name>
+                  <description>Magnetometer 1 startup OK</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>MAG1_STARTUP_ERR</name>
+                  <description>Magnetometer 1 startup error</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
 
             <!-- MAG2 -->
@@ -2334,6 +2490,18 @@
               <bitRange>[0:0]</bitRange>
               <dataType>bitField</dataType>
               <access>read-only</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>MAG2_STARTUP_OK</name>
+                  <description>Magnetometer 2 startup OK</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>MAG2_STARTUP_ERR</name>
+                  <description>Magnetometer 2 startup error</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
 
           </fields>
