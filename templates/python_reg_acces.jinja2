@@ -5,3 +5,14 @@
 {%- for register in cregs %}
 print(f"{{ '{:<30s}'.format(register.name.lower()) }}: {shearwater.{{ register.name.lower() }}}")
 {%- endfor %}
+print(f"=============================================")
+
+{%- for register in dregs %}
+print(f"{{ '{:<30s}'.format(register.name.lower()) }}: {shearwater.{{ register.name.lower() }}}")
+{%- endfor %}
+print(f"=============================================")
+
+{%- for register in commands %}
+print(f"{{ '{:<30s}'.format(register.name.lower()) }}: {shearwater.{{ register.name.lower() }}}")
+{%- endfor %}
+print(f"=============================================")
