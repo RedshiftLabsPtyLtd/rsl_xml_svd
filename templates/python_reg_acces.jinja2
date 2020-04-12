@@ -2,17 +2,20 @@
 # Version: {{ version }}
 # Date: {{ date }}
 
+print(f"\\n========== CONFIG REGISTERS ===================================")
 {%- for register in cregs %}
 print(f"{{ '{:<30s}'.format(register.name.lower()) }}: {shearwater.{{ register.name.lower() }}}")
 {%- endfor %}
-print(f"=============================================")
 
+
+print(f"\\n========== DATA REGISTERS ===================================")
 {%- for register in dregs %}
 print(f"{{ '{:<30s}'.format(register.name.lower()) }}: {shearwater.{{ register.name.lower() }}}")
 {%- endfor %}
-print(f"=============================================")
 
+
+print(f"\\n========== COMMAND REGISTERS ===================================")
 {%- for register in commands %}
 print(f"{{ '{:<30s}'.format(register.name.lower()) }}: {shearwater.{{ register.name.lower() }}}")
 {%- endfor %}
-print(f"=============================================")
+
