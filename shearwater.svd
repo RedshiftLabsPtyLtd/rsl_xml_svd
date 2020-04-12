@@ -1144,12 +1144,12 @@
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>OFF</name>
+                  <name>PPS_OFF</name>
                   <description>TX2 not used as PPS input from GPS</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>ON</name>
+                  <name>PPS_ON</name>
                   <description>TX2 used as PPS input from GPS</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -1165,12 +1165,12 @@
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>OFF</name>
+                  <name>ZG_OFF</name>
                   <description>NOT measure rate gyro bias on startup</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>ON</name>
+                  <name>ZG_ON</name>
                   <description>Measure rate gyro bias on startup</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -1207,12 +1207,12 @@
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>OFF</name>
+                  <name>MAG1_NOT_IN_STATE</name>
                   <description>NOT use magnetometer 1 in state update</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>ON</name>
+                  <name>MAG1_IN_STATE</name>
                   <description>Use magnetometer 1 in state update</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -1228,12 +1228,12 @@
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>OFF</name>
+                  <name>MAG2_NOT_IN_STATE</name>
                   <description>NOT use magnetometer 2 in state update</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>ON</name>
+                  <name>MAG2_IN_STATE</name>
                   <description>Use magnetometer 2 in state update</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -1262,22 +1262,22 @@
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>2000</name>
+                  <name>2000_dps</name>
                   <description>Measurement range: +- 2000 dps</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>1000</name>
+                  <name>1000_dps</name>
                   <description>Measurement range: +- 1000 dps</description>
                   <value>1</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>500</name>
+                  <name>500_dps</name>
                   <description>Measurement range: +- 500 dps</description>
                   <value>2</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>250</name>
+                  <name>250_dps</name>
                   <description>Measurement range: +- 250 dps</description>
                   <value>3</value>
                 </enumeratedValue>
@@ -1373,22 +1373,22 @@
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>2000</name>
+                  <name>2000_dps</name>
                   <description>Measurement range: +- 2000 dps</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>1000</name>
+                  <name>1000_dps</name>
                   <description>Measurement range: +- 1000 dps</description>
                   <value>1</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>500</name>
+                  <name>500_dps</name>
                   <description>Measurement range: +- 500 dps</description>
                   <value>2</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>250</name>
+                  <name>250_dps</name>
                   <description>Measurement range: +- 250 dps</description>
                   <value>3</value>
                 </enumeratedValue>
@@ -2013,22 +2013,22 @@
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>2</name>
+                  <name>2_g</name>
                   <description>Measurement range: +- 2 g</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>4</name>
+                  <name>4_g</name>
                   <description>Measurement range: +- 4 g</description>
                   <value>1</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>8</name>
+                  <name>8_g</name>
                   <description>Measurement range: +- 8 g</description>
                   <value>2</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>16</name>
+                  <name>16_g</name>
                   <description>Measurement range: +- 16 g</description>
                   <value>3</value>
                 </enumeratedValue>
@@ -2324,12 +2324,12 @@
               <access>read-only</access>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>OFF</name>
+                  <name>OVF_OFF</name>
                   <description>No overflow registered</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>ON</name>
+                  <name>OVF_ON</name>
                   <description>Overflow registered, reduce broadcast rates</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -2345,12 +2345,12 @@
               <access>read-only</access>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>OFF</name>
+                  <name>ACC1_N_OFF</name>
                   <description>No high acceleration / no high vibration detected</description>
                   <value>0</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>ON</name>
+                  <name>ACC1_N_ON</name>
                   <description>High acceleration / high vibration detected</description>
                   <value>1</value>
                 </enumeratedValue>
