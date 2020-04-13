@@ -2837,7 +2837,7 @@
               <name>MAG_2_RAW_X</name>
               <description>Magnetometer X (2s complement 16-bit integer)</description>
               <bitRange>[31:16]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint16_t</dataType>
               <access>read-only</access>
             </field>
 
@@ -2846,7 +2846,7 @@
               <name>MAG_2_RAW_Y</name>
               <description>Magnetometer Y (2s complement 16-bit integer)</description>
               <bitRange>[15:0]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint16_t</dataType>
               <access>read-only</access>
             </field>
           </fields>
@@ -2868,7 +2868,7 @@
               <name>MAG_2_RAW_Z</name>
               <description>Magnetometer Z (2s complement 16-bit integer)</description>
               <bitRange>[31:16]</bitRange>
-              <dataType>int16_t</dataType>
+              <dataType>uint16_t</dataType>
               <access>read-only</access>
             </field>
           </fields>
