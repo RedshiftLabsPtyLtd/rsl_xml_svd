@@ -26,6 +26,8 @@
  * Version: {{ version }}
  * Date: {{ date }}
 */
+#ifndef RSL_SHEARWATER_REGISTER_MAP_H
+#define RSL_SHEARWATER_REGISTER_MAP_H
 
 #include <stdint.h>
 
@@ -68,3 +70,5 @@ union {{ register.name }} {
     } fields;
 };
 {% endfor %}
+
+#endif //RSL_SHEARWATER_REGISTER_MAP_H
