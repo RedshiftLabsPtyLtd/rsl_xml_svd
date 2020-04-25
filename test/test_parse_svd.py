@@ -1,5 +1,7 @@
 import os
 import os.path
+from typing import Tuple
+
 import pytest
 from rsl_svd_parser import RslSvdParser, Register, Field, EnumeratedValue
 
@@ -123,4 +125,26 @@ def test_get_fields_and_gaps(rsl_svd_parser: RslSvdParser):
     result = dreg_mag_1_raw_x.get_fields_and_gaps()
     expected_dreg_mag_1_raw_x = [{'MAG_1_RAW_X': 32}]
     assert result == expected_dreg_mag_1_raw_x, f"Incorrect fields/gaps for {dreg_mag_1_raw_x.name}, got: {result}"
+
+
+@pytest.mark.svd
+def test_hidden_svd_parse(rsl_svd_parser: RslSvdParser):
+    assert len(rsl_svd_parser.hidden_regs) > 0, "NO hidden registers found!"
+
+
+@pytest.mark.svd
+def test_hidden_register_uniq_addr(rsl_svd_parser: RslSvdParser):
+    hidden_regs: Tuple[Register] = rsl_svd_parser.hidden_regs
+    hidden_regs_addrs = list(el.address for el in hidden_regs)
+    uniq_addr = set(hidden_regs_addrs)
+    assert len(uniq_addr) == len(hidden_regs_addrs), "Duplicate addresses! Every register must have unique addr!"
+
+
+@pytest.mark.svd
+def test_hidden_find(rsl_svd_parser: RslSvdParser):
+    hidden_c_gyro_1_bias_x_pow_0 = rsl_svd_parser.find_hidden_register_by(address=22)
+    assert hidden_c_gyro_1_bias_x_pow_0.name == 'HIDDEN_C_GYRO_1_BIAS_X_POW_0', "Find by address failed for hidden!"
+
+    hidden_mag_1_variance = rsl_svd_parser.find_hidden_register_by(name='HIDDEN_MAG_1_VARIANCE')
+    assert hidden_mag_1_variance.address == 3, "Hidden register name and address mismatch!"
 

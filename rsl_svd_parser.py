@@ -103,14 +103,19 @@ class RslSvdParser:
 
     def __init__(self, *args, **kwargs):
         self.svd_xml_file = os.path.abspath('./shearwater.svd') if not kwargs.get('svd_file') else kwargs.get('svd_file')
+        self.svd_hidden_regs_xml_file = os.path.abspath('./shearwater_hidden.svd') \
+            if not kwargs.get('svd_hidden_regs_file') else kwargs.get('svd_hidden_regs_file')
         self.svd_xml_root = RslSvdParser.parse_svd_file(self.svd_xml_file)
-        self.svd_regs = self.find_all_register_xml_root_in_svd()
+        self.svd_xml_hidden_regs_root = RslSvdParser.parse_svd_file(self.svd_hidden_regs_xml_file)
+        self.svd_regs = RslSvdParser.find_all_register_xml_root_in_svd(self.svd_xml_root)
+        self.hidden_regs_xml = RslSvdParser.find_all_register_xml_root_in_svd(self.svd_xml_hidden_regs_root)
         self.svd_cregs = self.find_cregs_in_svd()
         self.svd_dregs = self.get_dregs_from_svd()
         self.svd_commands = self.get_commands_from_svd()
         self.cregs = self.get_cregs_objects()
         self.dregs = self.get_dreg_objects()
         self.commands = self.get_commands_objects()
+        self.hidden_regs = self.get_hidden_objects()
         self.regs = self.cregs + self.dregs + self.commands
 
     @staticmethod
@@ -119,8 +124,9 @@ class RslSvdParser:
             raise FileNotFoundError(f"Non-existing SVD file provided, check if ``{file_to_parse}`` exists!")
         return ET.parse(file_to_parse).getroot()
 
-    def find_all_register_xml_root_in_svd(self) -> ET.Element:
-        return self.svd_xml_root.findall('.//register')
+    @staticmethod
+    def find_all_register_xml_root_in_svd(parsed_xml_tree_root: ET.Element) -> ET.Element:
+        return parsed_xml_tree_root.findall('.//register')
 
     def find_cregs_in_svd(self) -> Tuple[Any, ...]:
         return tuple(el for el in self.svd_regs if 'CREG' in el.find('./name').text)
@@ -140,12 +146,23 @@ class RslSvdParser:
     def get_commands_objects(self) -> Tuple[Register]:
         return tuple(self.extract_register_fields(el) for el in self.svd_commands)
 
-    def find_register_by(self, **kw):
+    def get_hidden_objects(self) -> Tuple[Register]:
+        return tuple(self.extract_register_fields(el) for el in self.hidden_regs_xml)
+
+    @staticmethod
+    def find_by(registers: Tuple[Register], **kw) -> Union[None, Register]:
         (prop, value), = kw.items()
         if len(kw) > 1 or prop not in ['name', 'address']:
             raise NotImplementedError(f"One pair is supported, with key either `name` or `address`, but given: {kw}!")
-        found_register = next(filter(lambda x: getattr(x, prop) == value, self.regs), None)
+        found_register = next(filter(lambda x: getattr(x, prop) == value, registers), None)
         return found_register
+
+    def find_register_by(self, **kw):
+        return RslSvdParser.find_by(self.regs, **kw)
+
+    def find_hidden_register_by(self, **kw):
+        return RslSvdParser.find_by(self.hidden_regs, **kw)
+
 
     @staticmethod
     def get_enumerated_value(enum_value: ET.Element) -> EnumeratedValue:
