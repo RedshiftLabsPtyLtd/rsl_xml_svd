@@ -26,8 +26,8 @@
  * Version: {{ version }}
  * Date: {{ date }}
 */
-#ifndef RSL_SHEARWATER_REGISTER_MAP_H
-#define RSL_SHEARWATER_REGISTER_MAP_H
+#ifndef {{ define_guard }}
+#define {{ define_guard }}
 
 #include <stdint.h>
 
@@ -71,4 +71,4 @@ union {{ register.name }} {
 };
 {% endfor %}
 
-#endif //RSL_SHEARWATER_REGISTER_MAP_H
+#endif //{{ define_guard }}

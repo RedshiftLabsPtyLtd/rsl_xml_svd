@@ -31,48 +31,18 @@
 
 typedef enum {
     // configuration register addresses
-{%- for register in cregs %}
-    {{ '{:<40s}'.format(register.name + '_ADDR_ENUM') }} = {{ '{}'.format(register.address) }},
+{%- for register in regs %}
+    {{ '{:<50s}'.format(register.name + '_ADDR_ENUM') }} = {{ '{}'.format(register.address) }},
 {%- endfor %}
-} CREGS_ADDR_ENUM;
+} HIDDEN_REGS_ADDR_ENUM;
 
-{% for register in cregs %}
+{% for register in regs %}
 #define {{ '{:<40s}'.format(register.name + '_ADDR') }} {{ '(0x{:02X})'.format(register.address) }}
 {%- endfor %}
 
 
-#define {{ '{:<36s}'.format('CREGS_ADDR_START') }} {{ cregs[0].address }}
-#define {{ '{:<36s}'.format('CREGS_ADDR_END') }} {{ cregs[-1].address }}
-#define {{ '{:<36s}'.format('CREGS_SIZE') }} {{ cregs[-1].address  - cregs[0].address + 1 }}
-
-typedef enum {
-    // data register addresses
-{%- for register in dregs %}
-    {{ '{:<40s}'.format(register.name + '_ADDR_ENUM') }} = {{ '{}'.format(register.address) }},
-{%- endfor %}
-} DREGS_ADDR_ENUM;
-
-{% for register in dregs %}
-#define {{ '{:<40s}'.format(register.name + '_ADDR') }} {{ '(0x{:02X})'.format(register.address) }}
-{%- endfor %}
-
-#define {{ '{:<36s}'.format('DREGS_ADDR_START') }} {{ dregs[0].address }}
-#define {{ '{:<36s}'.format('DREGS_ADDR_END') }} {{ dregs[-1].address }}
-#define {{ '{:<36s}'.format('DREGS_SIZE') }} {{ dregs[-1].address  - dregs[0].address + 1 }}
-
-
-typedef enum {
-    // commands register addresses
-{%- for register in commands %}
-    {{ '{:<40s}'.format(register.name + '_ADDR_ENUM') }} = {{ '{}'.format(register.address) }},
-{%- endfor %}
-} COMMANDS_ADDR_ENUM;
-
-{% for register in commands %}
-#define {{ '{:<40s}'.format(register.name + '_ADDR') }} {{ '(0x{:02X})'.format(register.address) }}
-{%- endfor %}
-
-
-#define {{ '{:<36s}'.format('COMMANDS_SIZE') }} {{ commands.__len__() }}
+#define {{ '{:<40s}'.format('HIDDEN_REGS_ADDR_START') }} {{ regs[0].address }}
+#define {{ '{:<40s}'.format('HIDDEN_REGS_ADDR_END') }} {{ regs[-1].address }}
+#define {{ '{:<40s}'.format('HIDDEN_REGS_SIZE') }} {{ regs[-1].address  - regs[0].address + 1 }}
 
 #endif //{{ define_guard }}
