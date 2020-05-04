@@ -28,7 +28,11 @@ class ShearwaterConfiguration:
 	config_item = collections.OrderedDict()
 {%- for register in config_regs %}
 {%- for field in register.fields  %}
-	config_item['{{ '{}'.format(field.name) }}'] = Config({{ register.address }},0,{{ field.bit_range[0] - field.bit_range[1] + 1 }},{{ field.bit_range[1] }},'{{ 'byte' if field.data_type in ['uint8_t', 'bitField'] else field.data_type }}')
+    {%- if field.bit_range[0] - field.bit_range[1] == 0 %}
+	config_item['{{ '{}'.format(field.name) }}'] = Config({{ register.address }},0,{{ field.bit_range[0] - field.bit_range[1] + 1 }},{{ field.bit_range[1] }},'boolean')
+    {%- else %}
+	config_item['{{ '{}'.format(field.name) }}'] = Config({{ register.address }},0,{{ field.bit_range[0] - field.bit_range[1] + 1 }},{{ field.bit_range[1] }},'{{ 'byte' if field.data_type in ['bitField', 'uint8_t'] else field.data_type }}')
+    {%- endif %}
 {%- endfor  %}
 {%- endfor %}
 
