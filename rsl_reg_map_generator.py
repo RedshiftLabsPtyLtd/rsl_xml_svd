@@ -78,3 +78,11 @@ if __name__ == '__main__':
                   'date': today,
                   'regs': svd_parser.hidden_regs}
     render_template_to_file(reg_addr_enum_template, reg_addr_enum_out, param_dict)
+
+    reg_python_config_template = os.path.abspath('templates/python_shearwater_config.jinja2')
+    reg_python_config_out = 'ShearwaterConfiguration.py'
+    param_dict = {'hidden_regs': svd_parser.hidden_regs,
+                  'config_regs': svd_parser.cregs,
+                  'data_regs': svd_parser.dregs,
+                  'command_regs': svd_parser.commands}
+    render_template_to_file(reg_python_config_template, reg_python_config_out, param_dict)
