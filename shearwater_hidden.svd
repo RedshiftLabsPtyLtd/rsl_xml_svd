@@ -4342,212 +4342,115 @@
           </fields>
         </register>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      <!-- HIDDEN_GYRO_1_CONVERSION -->
+        <register>
+          <name>HIDDEN_GYRO_1_CONVERSION</name>
+          <description>TODO: add description</description>
+          <addressOffset>0x304</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- HIDDEN_GYRO_1_CONVERSION -->
+            <field>
+              <name>HIDDEN_GYRO_1_CONVERSION</name>
+              <description>32-bit IEEE 754 Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+      <!-- HIDDEN_GYRO_2_CONVERSION -->
+        <register>
+          <name>HIDDEN_GYRO_2_CONVERSION</name>
+          <description>TODO: add description</description>
+          <addressOffset>0x308</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- HIDDEN_GYRO_2_CONVERSION -->
+            <field>
+              <name>HIDDEN_GYRO_2_CONVERSION</name>
+              <description>32-bit IEEE 754 Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- HIDDEN_ACCEL_1_CONVERSION -->
+        <register>
+          <name>HIDDEN_ACCEL_1_CONVERSION</name>
+          <description>TODO: add description</description>
+          <addressOffset>0x30C</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- HIDDEN_ACCEL_1_CONVERSION -->
+            <field>
+              <name>HIDDEN_ACCEL_1_CONVERSION</name>
+              <description>32-bit IEEE 754 Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- HIDDEN_MAG_1_CONVERSION -->
+        <register>
+          <name>HIDDEN_MAG_1_CONVERSION</name>
+          <description>TODO: add description</description>
+          <addressOffset>0x310</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- HIDDEN_MAG_1_CONVERSION -->
+            <field>
+              <name>HIDDEN_MAG_1_CONVERSION</name>
+              <description>32-bit IEEE 754 Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+
+        <!-- HIDDEN_MAG_2_CONVERSION -->
+        <register>
+          <name>HIDDEN_MAG_2_CONVERSION</name>
+          <description>TODO: add description</description>
+          <addressOffset>0x314</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- HIDDEN_MAG_2_CONVERSION -->
+            <field>
+              <name>HIDDEN_MAG_2_CONVERSION</name>
+              <description>32-bit IEEE 754 Floating Point Value</description>
+              <bitRange>[31:0]</bitRange>
+              <dataType>float</dataType>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
 
 
 
