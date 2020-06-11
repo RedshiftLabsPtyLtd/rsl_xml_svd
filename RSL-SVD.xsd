@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
+  Modified by Redshift Labs Pty Ltd
 
   Copyright (c) 2013-2016 ARM Limited. All rights reserved.
 
@@ -442,6 +443,10 @@
       </xs:choice>
       <!-- data type to interpret the corresponding bitfield -->
       <xs:element name="dataType" type="dataTypeType" minOccurs="0" maxOccurs="1"/>
+      <!-- conversionScaleFactor specifies scale factor `A` of linear conversion: result = A * original_value + B -->
+      <xs:element name="conversionScaleFactor" type="xs:float" minOccurs="0"/>
+      <!-- conversionBiasFactor specifies bias factor `B` of linear conversion: result = A * original_value + B -->
+      <xs:element name="conversionBiasFactor" type="xs:float" minOccurs="0"/>
       <!-- access describes the predefined permissions for the field. -->
       <xs:element name="access" type="accessType" minOccurs="0"/>
       <!-- predefined description of write side effects -->
@@ -485,7 +490,7 @@
         <xs:element name="alternateRegister" type="dimableIdentifierType" minOccurs="0"/>
       </xs:choice>
       <!-- addressOffset describes the address of the register relative to the baseOffset of the peripheral -->
-      <xs:element name="addressOffset" type="scaledNonNegativeInteger"/>
+      <xs:element name="address" type="scaledNonNegativeInteger"/>
       <!-- registerPropertiesGroup elements specify the default values for register size, access permission and
                                      reset value. These default values are inherited to all fields contained in this register -->
       <xs:group    ref="registerPropertiesGroup" minOccurs="0"/>

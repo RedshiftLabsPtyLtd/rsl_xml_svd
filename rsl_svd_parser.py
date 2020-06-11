@@ -66,7 +66,6 @@ class Register:
     description: str
     access: str
     address: int
-    address_offset: int
     fields: List[Field]
 
     def __repr__(self):
@@ -103,12 +102,9 @@ class RslSvdParser:
 
     def __init__(self, *args, **kwargs):
         self.svd_xml_file = os.path.abspath('./shearwater.svd') if not kwargs.get('svd_file') else kwargs.get('svd_file')
-        self.svd_hidden_regs_xml_file = os.path.abspath('./shearwater_hidden.svd') \
-            if not kwargs.get('svd_hidden_regs_file') else kwargs.get('svd_hidden_regs_file')
         self.svd_xml_root = RslSvdParser.parse_svd_file(self.svd_xml_file)
-        self.svd_xml_hidden_regs_root = RslSvdParser.parse_svd_file(self.svd_hidden_regs_xml_file)
-        self.svd_regs = RslSvdParser.find_all_register_xml_root_in_svd(self.svd_xml_root)
-        self.hidden_regs_xml = RslSvdParser.find_all_register_xml_root_in_svd(self.svd_xml_hidden_regs_root)
+        self.svd_regs = RslSvdParser.find_main_register_xml_root_in_svd(self.svd_xml_root)
+        self.hidden_regs_xml = RslSvdParser.find_hidden_register_xml_root_in_svd(self.svd_xml_root)
         self.svd_cregs = self.find_cregs_in_svd()
         self.svd_dregs = self.get_dregs_from_svd()
         self.svd_commands = self.get_commands_from_svd()
@@ -125,8 +121,14 @@ class RslSvdParser:
         return ET.parse(file_to_parse).getroot()
 
     @staticmethod
-    def find_all_register_xml_root_in_svd(parsed_xml_tree_root: ET.Element) -> ET.Element:
-        return parsed_xml_tree_root.findall('.//register')
+    def find_main_register_xml_root_in_svd(parsed_xml_tree_root: ET.Element) -> ET.Element:
+        main_register_map_peripheral = parsed_xml_tree_root.find('.//peripheral/[name="MAIN_REGISTER_MAP"]')
+        return main_register_map_peripheral.findall('.//register')
+
+    @staticmethod
+    def find_hidden_register_xml_root_in_svd(parsed_xml_tree_root: ET.Element) -> ET.Element:
+        hidden_register_map_peripheral = parsed_xml_tree_root.find('.//peripheral/[name="HIDDEN_REGISTER_MAP"]')
+        return hidden_register_map_peripheral.findall('.//register')
 
     def find_cregs_in_svd(self) -> Tuple[Any, ...]:
         return tuple(el for el in self.svd_regs if 'CREG' in el.find('./name').text)
@@ -135,7 +137,7 @@ class RslSvdParser:
         return tuple(el for el in self.svd_regs if 'DREG' in el.find('./name').text)
 
     def get_commands_from_svd(self) -> Tuple[Any, ...]:
-        return tuple(el for el in self.svd_regs if int(el.find('./addressOffset').text, 16) / 4 >= 0xAA)
+        return tuple(el for el in self.svd_regs if int(el.find('./address').text, 16) >= 0xAA)
 
     def get_cregs_objects(self) -> Tuple[Register]:
         return tuple(self.extract_register_fields(el) for el in self.svd_cregs)
@@ -194,15 +196,13 @@ class RslSvdParser:
         reg_name = reg_desc.find('.//name').text
         reg_access = reg_desc.find('.//access').text
         description = reg_desc.find('.//description').text
-        address_offset = int(reg_desc.find('.//addressOffset').text, 16)
-        address = int(address_offset / 4)
+        address = int(reg_desc.find('.//address').text, 16)
         fields = reg_desc.findall('.//field')
         field_info = [self.extract_field_info(field) for field in fields]
         return Register(name=reg_name,
                         access=reg_access,
                         description=description,
                         address=address,
-                        address_offset=address_offset,
                         fields=field_info)
 
 

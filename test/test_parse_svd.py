@@ -31,10 +31,10 @@ def test_svd_registers(rsl_svd_parser: RslSvdParser):
     xml_regs = rsl_svd_parser.svd_regs
     for reg in xml_regs:
         register = rsl_svd_parser.extract_register_fields(reg)
-        assert len(register.name) > 0, f"NO register name for offset {register.address_offset}!"
+        assert len(register.name) > 0, f"NO register name for offset {register.address}!"
         assert register.access in ['read-only', 'write-only', 'read-write'], f"INVALID register access for {register.name}!"
         assert len(register.description) > 0, f"NO register description available for {register.name}!"
-        assert register.address_offset >= 0, f"Address offset is incorrect for {register.name}"
+        assert register.address >= 0, f"Address is incorrect for {register.name}"
         assert len(register.fields) > 0, f"NO Fields in register {register.name}"
 
 
@@ -130,6 +130,13 @@ def test_get_fields_and_gaps(rsl_svd_parser: RslSvdParser):
 @pytest.mark.svd
 def test_hidden_svd_parse(rsl_svd_parser: RslSvdParser):
     assert len(rsl_svd_parser.hidden_regs) > 0, "NO hidden registers found!"
+
+@pytest.mark.svd
+def test_main_register_uniq_addr(rsl_svd_parser: RslSvdParser):
+    regs: Tuple[Register] = rsl_svd_parser.regs
+    regs_addrs = list(el.address for el in regs)
+    uniq_addr = set(regs_addrs)
+    assert len(uniq_addr) == len(regs_addrs), "Duplicate addresses! Every register must have unique addr!"
 
 
 @pytest.mark.svd
