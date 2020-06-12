@@ -38,11 +38,4 @@ pipelines:
           - pwd
           - ls
           - python3.7 -m pytest -m svd
-    - step:
-        name: Generating header file
-        script:
-          - python3.7 rsl_reg_map_generator.py
-          - ls
-          - curl -X POST --user "${BB_AUTH_STRING}" "https://api.bitbucket.org/2.0/repositories/kselyunin/rsl_xml_svd/downloads" --form files=@"shearwater.h" --form files=@"shearwater_enum.h" --form files=@"shearwater_hidden.h" --form files=@"shearwater_hidden_enum.h"
-        artifacts:
-          - shearwater.h
+
