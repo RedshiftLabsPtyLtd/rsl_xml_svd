@@ -31,11 +31,11 @@ class ShearWaterRegisters(ABC):
         pass
 
     @abstractmethod
-    def read_register(self, reg_addr: int, **kw) -> bytes:
+    def read_register(self, reg_addr: int, **kw) -> Tuple[bool, bytes]:
         pass
 
     @abstractmethod
-    def write_register(self, reg_addr: int, reg_value: Union[int, bytes, float], **kw):
+    def write_register(self, reg_addr: int, reg_value: Union[int, bytes, float, str], **kw):
         pass
 
 {{ generated_code_for_main_register_map }}
