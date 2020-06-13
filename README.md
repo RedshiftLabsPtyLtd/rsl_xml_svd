@@ -12,7 +12,6 @@ The repo overview:
 * [`./RSL-SVD.xsd`](./RSL-SVD.xsd) is SVD (**s**ystem **v**iew **d**escription) XML schema with our extensions;
 * [`./pytest.ini`](./pytest.ini) is pytest configuration (all test have the `svd` mark);
 * [`./README.md`](./README.md) the file you are currently reading;
-* [`./rsl_reg_map_generator.py`](./rsl_reg_map_generator.py) is a template creation script;
 * [`./rsl_svd_parser.py`](./rsl_svd_parser.py) python XML parser in *dataclasses*;
 * [`./shearwater.svd`](./shearwater.svd) is the `SVD` file for the `shearwater` register map;
 * [`./um7.svd`](./um7.svd) is the `SVD` file for the `UM7` register map;
