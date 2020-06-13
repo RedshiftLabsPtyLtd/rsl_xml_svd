@@ -45,7 +45,7 @@ if __name__ == '__main__':
                   'define_guard': 'RSL_SHEARWATER_REGISTER_ENUM_H'}
     render_template_to_file(reg_addr_enum_template, reg_addr_enum_out, param_dict)
 
-    reg_addr_enum_template = os.path.abspath('templates/python_reg_acces.jinja2')
+    reg_addr_enum_template = os.path.abspath('templates/python_reg_access.jinja2')
     reg_addr_enum_out = 'shearwater_py_accessor.py'
     param_dict = {'version': 'v0.1',
                   'date': today,
@@ -72,7 +72,7 @@ if __name__ == '__main__':
                   'define_guard':  'RSL_SHEARWATER_HIDDEN_REGISTER_ENUM_MAP_H'}
     render_template_to_file(reg_addr_enum_template, reg_addr_enum_out, param_dict)
 
-    reg_addr_enum_template = os.path.abspath('templates/python_hidden_reg_acces.jinja2')
+    reg_addr_enum_template = os.path.abspath('templates/python_hidden_reg_access.jinja2')
     reg_addr_enum_out = 'shearwater_hidden_py_accessor.py'
     param_dict = {'version': 'v0.1',
                   'date': today,

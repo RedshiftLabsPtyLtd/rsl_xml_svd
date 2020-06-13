@@ -7,14 +7,15 @@ This repo holds the SVD description of the **Redshift Labs Pty Ltd**
 
 The repo overview:
 
-* [`./templates`](./templates) holds `jinja2` template files for `C/C++` header generation;
-* [`./test`](./test) are `pytest` tests for the repo;
-* [`./CMSIS-SVD.xsd`](./CMSIS-SVD.xsd) is XML schema with our extensions;
-* [`./pytest.ini`](./pytest.ini) is pytest configuration (all test have a mark);
+* [`./templates`](./templates) holds `jinja2` template files for `C/C++` header generation, and `python` register map generation;
+* [`./test`](./test) are [`pytest`](https://docs.pytest.org/en/latest/) tests for the repo;
+* [`./RSL-SVD.xsd`](./RSL-SVD.xsd) is SVD (**s**ystem **v**iew **d**escription) XML schema with our extensions;
+* [`./pytest.ini`](./pytest.ini) is pytest configuration (all test have the `svd` mark);
 * [`./README.md`](./README.md) the file you are currently reading;
 * [`./rsl_reg_map_generator.py`](./rsl_reg_map_generator.py) is a template creation script;
 * [`./rsl_svd_parser.py`](./rsl_svd_parser.py) python XML parser in *dataclasses*;
 * [`./shearwater.svd`](./shearwater.svd) is the `SVD` file for the `shearwater` register map;
+* [`./um7.svd`](./um7.svd) is the `SVD` file for the `UM7` register map;
 * [`./svd_stylesheet.xsl`](./svd_stylesheet.xsl) stylesheet for the SVD schema.
 
 ## What is SVD and why we use it
@@ -79,8 +80,9 @@ can be found [here](https://www.keil.com/pack/doc/CMSIS/SVD/html/index.html).
 
 ## SVDConv tool from ARM
 
-**TL;DR**: you do not need to read this section. Currently we use our own generator
-and our code generation is entirely python based. This is how we started.
+**TL;DR**: you do not need to read this section, this is provided for consistency only. Currently we use our own generator
+and our code generation is entirely python based.
+We generate `C` headers and `python` accessors (i.e. *properties*) using `jinja2` templates. 
 
 The `SVDConv` tool from ARM can be used to validate the SVD description 
 and generate defines and structs from SVD descriptions.
