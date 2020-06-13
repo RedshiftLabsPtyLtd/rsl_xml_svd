@@ -7,7 +7,6 @@ This repo holds the SVD description of the **Redshift Labs Pty Ltd**
 
 The repo overview:
 
-* [`./templates`](./templates) holds `jinja2` template files for `C/C++` header generation, and `python` register map generation;
 * [`./test`](./test) are [`pytest`](https://docs.pytest.org/en/latest/) tests for the repo;
 * [`./RSL-SVD.xsd`](./RSL-SVD.xsd) is SVD (**s**ystem **v**iew **d**escription) XML schema with our extensions;
 * [`./pytest.ini`](./pytest.ini) is pytest configuration (all test have the `svd` mark);
