@@ -155,3 +155,55 @@ def test_hidden_find(rsl_svd_parser: RslSvdParser):
     hidden_mag_1_variance = rsl_svd_parser.find_hidden_register_by(name='HIDDEN_MAG_1_VARIANCE')
     assert hidden_mag_1_variance.address == 3, "Hidden register name and address mismatch!"
 
+
+@pytest.mark.svd
+def test_register_default_raw(rsl_svd_parser: RslSvdParser):
+    creg_com_settings: Register = rsl_svd_parser.find_register_by(name='CREG_COM_SETTINGS')
+    assert creg_com_settings.raw_value == 0, f"Default value for a register shall be '0', got {creg_com_settings.raw_value}!"
+
+
+@pytest.mark.svd
+def test_register_fields(rsl_svd_parser: RslSvdParser):
+    creg_com_settings: Register = rsl_svd_parser.find_register_by(name='CREG_COM_SETTINGS')
+    fields = creg_com_settings.field_names
+    assert 'BAUD_RATE' in fields, f"Field names for CREG_COM_SETTINGS are incorrect!"
+    creg_com_rates1: Register = rsl_svd_parser.find_register_by(name='CREG_COM_RATES1')
+    fields = creg_com_rates1.field_names
+    assert 'RAW_ACCEL_1_RATE' in fields, f"Field 'RAW_ACCEL_1_RATE' in 'CREG_COM_RATES1' not found, it is wrong!"
+
+
+@pytest.mark.svd
+def test_set_bitmask(rsl_svd_parser: RslSvdParser):
+    creg_com_settings: Register = rsl_svd_parser.find_register_by(name='CREG_COM_SETTINGS')
+    field = creg_com_settings.find_field_by(name='BAUD_RATE')
+    bit_mask_1 = creg_com_settings.set_bits_for_range(8, 8)
+    assert bit_mask_1 == 1 << 8, f"Expected bit mask: {1<<8}, got {bit_mask_1}"
+    bit_mask_2 = creg_com_settings.set_bits_for_range(7, 0)
+    assert bit_mask_2 == (1 << 8) - 1, f"Expected bit mask: {(1 << 8) - 1}, got {bit_mask_2}"
+    bit_mask_3 = creg_com_settings.set_bits_for_range(31, 28)
+    expected_bit_mask_3 = 1 << 31 | 1 << 30 | 1 << 29 | 1 << 28
+    assert bit_mask_3 == expected_bit_mask_3, f"Expected bit mask: {expected_bit_mask_3}, got: {bit_mask_3}"
+    bit_mask_4 = creg_com_settings.set_bits_for_field(field)
+    assert bit_mask_4 == bit_mask_3, f"Bit mask for the field: {field} is not equal to mask: {bit_mask_3}"
+
+
+@pytest.mark.svd
+def test_register_as_tuple(rsl_svd_parser: RslSvdParser):
+    creg_com_settings: Register = rsl_svd_parser.find_register_by(name='CREG_COM_SETTINGS')
+    enum_tuple = creg_com_settings.as_tuple()
+    print(enum_tuple)
+    assert len(enum_tuple) == len(creg_com_settings.field_names), f"Length is not equal to number of fields"
+
+
+@pytest.mark.svd
+def test_register_field_value(rsl_svd_parser: RslSvdParser):
+    creg_com_settings: Register = rsl_svd_parser.find_register_by(name='CREG_COM_SETTINGS')
+    creg_com_settings.raw_value = 3 << 28
+    value = creg_com_settings.field_value(name='BAUD_RATE')
+    assert value == 3, f"Reading field value for `BAUD_RATE` failed!"
+    creg_com_rates1: Register = rsl_svd_parser.find_register_by(name='CREG_COM_RATES1')
+    creg_com_rates1.raw_value |= 32 << 16
+    value = creg_com_rates1.field_value(name='RAW_GYRO_1_RATE')
+    assert value == 32, f"Reading field value for `RAW_GYRO_1_RATE` failed!"
+
+

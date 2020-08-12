@@ -25,7 +25,7 @@ class EnumeratedValue:
 class Field:
     name: str
     description: str
-    bit_range: Tuple[int]
+    bit_range: Tuple[int, int]
     data_type: str
     access: str
     enumerated_values: Tuple[EnumeratedValue] = tuple()
@@ -69,6 +69,7 @@ class Register:
     access: str
     address: int
     fields: List[Field]
+    raw_value: int = 0
 
     def __repr__(self):
         return f"Register(name={self.name}, address={self.address}, access={self.access}, fields={self.fields})"
@@ -98,6 +99,49 @@ class Register:
             elif el.name in fields_and_gaps[-1].keys():
                 fields_and_gaps[-1][el.name] += 1
         return fields_and_gaps
+
+    @property
+    def field_names(self):
+        return [el.name for el in self.fields]
+
+    def as_tuple(self) -> Tuple[EnumeratedValue]:
+        return tuple(self.field_enum(el) for el in self.field_names)
+
+    def field_enum(self, name: str = '') -> EnumeratedValue:
+        field = self.find_field_by(name=name)
+        field_value = self.field_value(name)
+        return field.find_enum_entry_by(value=field_value)
+
+    def from_tuple(self, fields: Tuple[EnumeratedValue]):
+        raise NotImplementedError("Assigning from tuple is not implemented yet!")
+
+    def set_bits_for_field(self, field: Field) -> int:
+        msb, lsb = field.bit_range
+        return Register.set_bits_for_range(msb, lsb)
+
+    @staticmethod
+    def set_bits_for_range(msb: int, lsb: int) -> int:
+        return ((1 << lsb) - 1) ^ ((1 << (msb + 1)) - 1)
+
+    def field_value(self, name: str = '') -> int:
+        field = self.find_field_by(name=name)
+        if field is None:
+            raise NotImplementedError(f"You provided field '{name}' for register {self.name}. "
+                                      f"Check the data sheet and provide correct name!")
+        bit_mask = self.set_bits_for_field(field)
+        field_value = self.raw_value & bit_mask
+        return field_value >> field.bit_range[1]
+
+    def set_field_value(self, **kw):
+        (prop, value), = kw.items()
+        if len(kw) != 1:
+            raise NotImplementedError(f"Only setting 1 property at a time is supported, but got: {kw}!")
+        field = self.find_field_by(name=prop)
+        msb, lsb = field.bit_range
+        zero_mask = ~(((1 << (msb - lsb + 1)) - 1) << lsb)
+        self.raw_value &= zero_mask
+        bit_mask = (1 << (msb - lsb + 1)) - 1
+        self.raw_value |= (bit_mask & value) << lsb
 
 
 class RslSvdParser:
@@ -161,7 +205,7 @@ class RslSvdParser:
         found_register = next(filter(lambda x: getattr(x, prop) == value, registers), None)
         return found_register
 
-    def find_register_by(self, **kw):
+    def find_register_by(self, **kw) -> Union[None, Register]:
         return RslSvdParser.find_by(self.regs, **kw)
 
     def find_hidden_register_by(self, **kw):
