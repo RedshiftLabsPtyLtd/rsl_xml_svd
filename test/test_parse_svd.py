@@ -207,3 +207,11 @@ def test_register_field_value(rsl_svd_parser: RslSvdParser):
     assert value == 32, f"Reading field value for `RAW_GYRO_1_RATE` failed!"
 
 
+@pytest.mark.svd
+def test_as_dict(rsl_svd_parser: RslSvdParser):
+    creg_com_settings: Register = rsl_svd_parser.find_register_by(name='CREG_COM_SETTINGS')
+    import json
+    print(json.dumps(creg_com_settings.as_dict(), indent=2))
+    creg_com_rates1: Register = rsl_svd_parser.find_register_by(name='CREG_COM_RATES1')
+    print(json.dumps(creg_com_rates1.as_dict(), indent=2))
+

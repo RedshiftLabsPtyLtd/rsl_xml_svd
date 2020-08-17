@@ -110,10 +110,30 @@ class Register:
     def field_enum(self, name: str = '') -> EnumeratedValue:
         field = self.find_field_by(name=name)
         field_value = self.field_value(name)
-        return field.find_enum_entry_by(value=field_value)
+        enum_entry = field.find_enum_entry_by(value=field_value)
+        if not isinstance(enum_entry, EnumeratedValue):
+            enum_entry = EnumeratedValue(name='', value=field_value, description='')
+        return enum_entry
 
     def from_tuple(self, fields: Tuple[EnumeratedValue]):
+        print(fields)
         raise NotImplementedError("Assigning from tuple is not implemented yet!")
+
+    def as_dict(self):
+        object_as_dict = {}
+        object_fields = vars(self).keys()
+        for object_field in object_fields:
+            if object_field == 'fields':
+                object_as_dict['fields'] = []
+                for register_field in vars(self)['fields']:
+                    field_dict = vars(register_field).copy()
+                    field_dict.pop('enumerated_values')
+                    enum_value = self.field_enum(register_field.name)
+                    field_dict['value'] = vars(enum_value)
+                    object_as_dict['fields'].append(field_dict)
+            else:
+                object_as_dict[object_field] = vars(self)[object_field]
+        return object_as_dict
 
     def set_bits_for_field(self, field: Field) -> int:
         msb, lsb = field.bit_range
