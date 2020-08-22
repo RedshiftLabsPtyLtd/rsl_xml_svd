@@ -148,9 +148,13 @@ class Register:
         if field is None:
             raise NotImplementedError(f"You provided field '{name}' for register {self.name}. "
                                       f"Check the data sheet and provide correct name!")
-        bit_mask = self.set_bits_for_field(field)
-        field_value = self.raw_value & bit_mask
-        return field_value >> field.bit_range[1]
+        if field.data_type == 'float':
+            field_value = self.raw_value
+        else:
+            bit_mask = self.set_bits_for_field(field)
+            field_value = self.raw_value & bit_mask
+            field_value = field_value >> field.bit_range[1]
+        return field_value
 
     def set_field_value(self, **kw):
         (prop, value), = kw.items()
