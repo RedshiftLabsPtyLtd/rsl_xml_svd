@@ -43,10 +43,10 @@ docker tag bb38976d03cf yourhubusername/image_name:v0.1
 
 In particularly, for our case:
 ```
-docker tag 6efd62ee0490 kselyunin/um7py_image:v0.1
+docker tag 6efd62ee0490 yourhubusername/um7py_image:v0.1
 ```
 
 Push the image to the dockerhub:
 ```
-docker push kselyunin/um7py_image
+docker push yourhubusername/um7py_image
 ```
