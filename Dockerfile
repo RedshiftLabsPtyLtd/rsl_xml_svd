@@ -1,7 +1,7 @@
 # Author: Dr. Konstantin Selyunin
 # Date: 26 December 2019
 # Version: v0.1
-# Copyright (C) 2019 Redshift Labs LLC. All rights reserved
+# License: MIT
 
 # start from official ubuntu image
 FROM ubuntu
