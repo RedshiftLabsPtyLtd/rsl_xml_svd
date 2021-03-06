@@ -215,3 +215,7 @@ def test_as_dict(rsl_svd_parser: RslSvdParser):
     creg_com_rates1: Register = rsl_svd_parser.find_register_by(name='CREG_COM_RATES1')
     print(json.dumps(creg_com_rates1.as_dict(), indent=2))
 
+
+@pytest.mark.svd
+def test_from_dict(rsl_svd_parser: RslSvdParser):
+    creg_com_settings: Register = rsl_svd_parser.find_register_by()

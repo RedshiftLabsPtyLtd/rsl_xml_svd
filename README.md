@@ -3,7 +3,7 @@
 ## About this repo
 
 This repo holds the SVD description of the **Redshift Labs Pty Ltd**
-`shearwater` register map and the tools to work with this description.
+`um7`, `shearwater` register maps and the tools to work with this description.
 
 The repo overview:
 
