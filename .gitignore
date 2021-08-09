@@ -5,3 +5,4 @@ out*
 struct_ansi_c
 .idea
 ShearwaterConfiguration.py
+.pytest_cache

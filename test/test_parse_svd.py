@@ -218,4 +218,5 @@ def test_as_dict(rsl_svd_parser: RslSvdParser):
 
 @pytest.mark.svd
 def test_from_dict(rsl_svd_parser: RslSvdParser):
-    creg_com_settings: Register = rsl_svd_parser.find_register_by()
+    creg_com_settings: Register = rsl_svd_parser.find_register_by(name='CREG_COM_SETTINGS')
+
