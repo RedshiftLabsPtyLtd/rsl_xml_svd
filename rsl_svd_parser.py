@@ -235,7 +235,6 @@ class RslSvdParser:
     def find_hidden_register_by(self, **kw):
         return RslSvdParser.find_by(self.hidden_regs, **kw)
 
-
     @staticmethod
     def get_enumerated_value(enum_value: ET.Element) -> EnumeratedValue:
         name = enum_value.find('.//name').text
