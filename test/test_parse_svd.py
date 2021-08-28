@@ -3,7 +3,7 @@ import os.path
 from typing import Tuple
 
 import pytest
-from rsl_svd_parser import RslSvdParser, Register, Field, EnumeratedValue
+from ..rsl_svd_parser import RslSvdParser, Register, Field, EnumeratedValue
 
 
 @pytest.fixture

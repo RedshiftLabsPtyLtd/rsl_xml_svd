@@ -7,6 +7,7 @@ import os
 import os.path
 
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any, List, Tuple, Union
 from xml.etree import ElementTree as ET
 
@@ -171,7 +172,8 @@ class Register:
 class RslSvdParser:
 
     def __init__(self, *args, **kwargs):
-        self.svd_xml_file = os.path.abspath('./shearwater.svd') if not kwargs.get('svd_file') else kwargs.get('svd_file')
+        script_folder = Path(__file__).parent
+        self.svd_xml_file = script_folder / 'shearwater.svd' if not kwargs.get('svd_file') else kwargs.get('svd_file')
         self.svd_xml_root = RslSvdParser.parse_svd_file(self.svd_xml_file)
         self.svd_regs = RslSvdParser.find_main_register_xml_root_in_svd(self.svd_xml_root)
         self.hidden_regs_xml = RslSvdParser.find_hidden_register_xml_root_in_svd(self.svd_xml_root)
@@ -185,8 +187,10 @@ class RslSvdParser:
         self.regs = self.cregs + self.dregs + self.commands
 
     @staticmethod
-    def parse_svd_file(file_to_parse: str):
-        if not os.path.exists(file_to_parse):
+    def parse_svd_file(file_to_parse: Union[str, Path]):
+        if isinstance(file_to_parse, str):
+            file_to_parse = Path(file_to_parse)
+        if not file_to_parse.exists():
             raise FileNotFoundError(f"Non-existing SVD file provided, check if ``{file_to_parse}`` exists!")
         return ET.parse(file_to_parse).getroot()
 
