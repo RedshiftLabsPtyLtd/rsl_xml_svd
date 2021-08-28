@@ -1,9 +1,11 @@
 # RSL XML SVD
 
+[![lint and test](https://github.com/RedshiftLabsPtyLtd/rsl_xml_svd/actions/workflows/test.yml/badge.svg)](https://github.com/RedshiftLabsPtyLtd/rsl_xml_svd/actions/workflows/test.yml)
+
 ## About this repo
 
 This repo holds the SVD description of the **Redshift Labs Pty Ltd**
-`um7`, `shearwater` register maps and the tools to work with this description.
+`UM7`, `UM8`, and `shearwater` register maps and the tools to work with this description.
 
 The repo overview:
 
@@ -14,6 +16,7 @@ The repo overview:
 * [`./rsl_svd_parser.py`](./rsl_svd_parser.py) python XML parser in *dataclasses*;
 * [`./shearwater.svd`](./shearwater.svd) is the `SVD` file for the `shearwater` register map;
 * [`./um7.svd`](./um7.svd) is the `SVD` file for the `UM7` register map;
+* [`./um8.svd`](./um8.svd) is the `SVD` file for the `UM8` register map;
 * [`./svd_stylesheet.xsl`](./svd_stylesheet.xsl) stylesheet for the SVD schema.
 
 ## What is SVD and why we use it
