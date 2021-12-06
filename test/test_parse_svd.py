@@ -1,5 +1,4 @@
-import os
-import os.path
+from pathlib import Path
 from typing import Tuple
 
 import pytest
@@ -13,7 +12,7 @@ def rsl_svd_parser() -> RslSvdParser:
 
 @pytest.mark.svd
 def test_rls_svd_parser_init(rsl_svd_parser: RslSvdParser):
-    assert os.path.exists(rsl_svd_parser.svd_xml_file), "NO SVD file found!"
+    assert Path(rsl_svd_parser.svd_xml_file).exists(), "NO SVD file found!"
 
     assert len(rsl_svd_parser.svd_cregs) > 0, "NO config registers found!"
     assert len(rsl_svd_parser.svd_dregs) > 0, "NO data registers found!"

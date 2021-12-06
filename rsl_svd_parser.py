@@ -3,9 +3,6 @@
 # Author: Dr. Konstantin Selyunin
 # License: MIT
 
-import os
-import os.path
-
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, List, Tuple, Union
@@ -195,12 +192,12 @@ class RslSvdParser:
         return ET.parse(file_to_parse).getroot()
 
     @staticmethod
-    def find_main_register_xml_root_in_svd(parsed_xml_tree_root: ET.Element) -> ET.Element:
+    def find_main_register_xml_root_in_svd(parsed_xml_tree_root: ET.Element) -> List[ET.Element]:
         main_register_map_peripheral = parsed_xml_tree_root.find('.//peripheral/[name="MAIN_REGISTER_MAP"]')
         return main_register_map_peripheral.findall('.//register')
 
     @staticmethod
-    def find_hidden_register_xml_root_in_svd(parsed_xml_tree_root: ET.Element) -> ET.Element:
+    def find_hidden_register_xml_root_in_svd(parsed_xml_tree_root: ET.Element) -> List[ET.Element]:
         hidden_register_map_peripheral = parsed_xml_tree_root.find('.//peripheral/[name="HIDDEN_REGISTER_MAP"]')
         return hidden_register_map_peripheral.findall('.//register')
 
