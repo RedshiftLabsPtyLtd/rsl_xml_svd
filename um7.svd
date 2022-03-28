@@ -3719,6 +3719,47 @@
           </fields>
         </register>
 
+        <!-- BUILD_ID -->
+        <register>
+          <name>BUILD_ID</name>
+          <description>Build ID shows BUILD version of programmed firmware</description>
+          <address>0xB5</address>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+
+          <fields>
+            <!-- VERSION_MAJOR -->
+            <field>
+              <name>VERSION_MAJOR</name>
+              <description>MAJOR VERSION of the programmed firmware</description>
+              <bitRange>[31:24]</bitRange>
+              <dataType>uint8_t</dataType>
+              <access>read-only</access>
+            </field>
+
+            <!-- VERSION_MAJOR -->
+            <field>
+              <name>VERSION_MINOR</name>
+              <description>MINOR VERSION of the programmed firmware</description>
+              <bitRange>[23:16]</bitRange>
+              <dataType>uint8_t</dataType>
+              <access>read-only</access>
+            </field>
+
+            <!-- CI_BUILD_ID -->
+            <field>
+              <name>BUILD_ID</name>
+              <description>CI BUILD ID of the programmed firmware</description>
+              <bitRange>[15:0]</bitRange>
+              <dataType>uint16_t</dataType>
+              <access>read-only</access>
+            </field>
+
+          </fields>
+        </register>
+
       </registers>
     </peripheral>
 
