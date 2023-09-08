@@ -127,6 +127,8 @@ class Register:
                     field_dict = vars(register_field).copy()
                     if field_dict['enumerated_values'] is not None:
                         field_dict['enumerated_values'] = [vars(f) for f in field_dict['enumerated_values']]
+                    else:
+                        field_dict['enumerated_values'] = []
                     enum_value = self.field_enum(register_field.name)
                     field_dict['value'] = vars(enum_value)
                     object_as_dict['fields'].append(field_dict)
